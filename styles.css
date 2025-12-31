@@ -184,6 +184,10 @@ img {
     color: var(--text-primary);
 }
 
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
 .nav-cta {
     padding: 10px 20px;
     background: var(--accent);
@@ -1778,3 +1782,38 @@ img {
     transform: translateY(0);
 }
 
+/* Navbar glass effect on scroll */
+.nav.nav-scrolled {
+    background: rgba(4, 8, 18, 0.45); /* transparent dark */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+}
+
+
+/* Navbar underline only for normal links */
+.nav-links a.nav-link {
+    position: relative;
+    padding-bottom: 6px;
+    transition: color var(--transition-fast);
+}
+
+.nav-links a.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--blue-500); /* Blue underline */
+    transition: width 0.25s ease;
+}
+
+.nav-links a.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Let’s Talk button has no underline */
+.nav-cta {
+    text-decoration: none;
+}

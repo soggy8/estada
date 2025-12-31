@@ -165,20 +165,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Navbar background on scroll
-    const nav = document.querySelector('.nav');
-    let lastScroll = 0;
-    
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
-        
-        if (currentScroll > 100) {
-            nav.style.background = 'rgba(4, 8, 18, 0.95)';
-        } else {
-            nav.style.background = 'rgba(4, 8, 18, 0.85)';
-        }
-        
-        lastScroll = currentScroll;
-    });
+const nav = document.querySelector('.nav');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+        nav.classList.add('nav-scrolled'); // enable blur + transparency
+    } else {
+        nav.classList.remove('nav-scrolled');
+    }
+});
+
     
     // Parallax effect for hero visual
     const heroVisual = document.querySelector('.hero-visual');
