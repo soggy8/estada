@@ -24,8 +24,41 @@ A modern, responsive static website for Estada, a tech logistics firm offering d
 - CSS3 (Custom properties, Grid, Flexbox, Animations)
 - Vanilla JavaScript
 - Google Fonts (Syne, Instrument Serif)
+- Flask (Python backend)
+- Flask-Mail (Email functionality)
 
 ## Getting Started
+
+### Running with Flask (Recommended)
+
+1. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+2. **Set up Resend API:**
+   - Sign up at [resend.com](https://resend.com) (free tier: 3,000 emails/month)
+   - Get your API key from the dashboard
+   - Create a `.env` file in the project root:
+   ```env
+   RESEND_API_KEY=re_xxxxxxxxxxxxx
+   ```
+   
+   Or set it as an environment variable:
+   ```bash
+   export RESEND_API_KEY=re_xxxxxxxxxxxxx
+   ```
+
+**Note:** Emails will be sent FROM the user's email address (from the form) TO all three recipients.
+
+3. **Run the Flask server:**
+```bash
+python app.py
+```
+
+The site will be available at `http://localhost:8082`
+
+### Static File Server (Alternative)
 
 Simply open `index.html` in your browser, or serve with any static file server:
 
@@ -40,13 +73,18 @@ npx serve
 php -S localhost:8000
 ```
 
+**Note:** The contact form will only work when running with Flask.
+
 ## File Structure
 
 ```
 estada/
+├── app.py          # Flask backend server
 ├── index.html      # Main HTML file
 ├── styles.css      # All styles
 ├── script.js       # Interactive functionality
+├── requirements.txt # Python dependencies
+├── .env            # Email configuration (create this)
 └── README.md       # This file
 ```
 

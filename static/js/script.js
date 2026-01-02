@@ -67,12 +67,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission handler
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
             // Get form data
             const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData);
+            const data = {
+                name: formData.get('name'),
+                email: formData.get('email'),
+                service: formData.get('service') || '',
+                message: formData.get('message') || ''
+            };
             
             // Simple validation
             if (!data.name || !data.email) {
@@ -80,19 +85,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // Simulate form submission
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Submit form
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate API call
-            setTimeout(() => {
-                showNotification('Message sent! We\'ll be in touch soon.', 'success');
-                contactForm.reset();
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showNotification('Message sent! We\'ll be in touch soon.', 'success');
+                    contactForm.reset();
+                } else {
+                    showNotification(result.message || 'Failed to send message. Please try again.', 'error');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                showNotification('Network error. Please check your connection and try again.', 'error');
+            } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 1500);
+            }
         });
     }
     
