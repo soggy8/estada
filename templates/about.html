@@ -4,14 +4,241 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us — Estada</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 </head>
 <body>
+    <div class="grain"></div>
+    
+    <nav class="nav">
+        <a href="{{ url_for('index') }}" class="nav-logo" aria-label="Estada">
+            <svg class="logo-icon" viewBox="0 0 237.17 225.5" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="logo-stroke" points="228.67 3.78 228.62 221.72 9.17 221.6 9.17 4.09 228.67 3.78"/>
+                <path class="logo-fill" d="M187.59,158.02c-20.16,22.51-47.6,28.79-47.6,28.79-8.42,1.93-25.93,5.69-45.9-1.75-3.54-1.31-16.97-6.65-28.99-19.88-3.88-4.26-10.95-12.22-15.02-24.9-5.23-16.32-2.18-30.17-.77-36.19,3.66-15.64,11.5-25.81,16.42-32.07,10.2-12.94,21.11-19.84,27.21-23.61,6.69-4.14,16.35-10.01,30.47-13.09,6.21-1.36,21.28-4.47,38.83.77,5.13,1.53,11.62,3.54,18.35,8.98,2.45,1.99,10.48,8.65,14.37,20.4,5.14,15.55-.59,29.11-2.83,34.39-5.04,11.91-12.88,18.82-16.94,22.33-10.78,9.3-21.52,12.59-24.13,13.34-4.79,1.39-17.32,4.85-31.46.47-3.98-1.22-9.04-2.82-13.71-7.47-5-4.97-6.8-10.67-7.5-13.58,0-.01-.03-.22.13-.37.13-.12.28-.1.31-.1,6.37,1.86,28.08,7.3,49.73-3.67,4.07-2.06,15.88-8.62,23.86-21.95,2.82-4.69,8.33-13.89,5.59-23.29-.31-1.08-1.25-4.16-3.85-7.09-1.05-1.19-4.64-4.89-13.18-6.44-14.77-2.68-30.26,3.63-32.78,4.69-21.24,8.89-32.41,24.47-37.28,31.44-6.93,9.92-8.77,16.82-9.49,20.34-.75,3.67-2.06,10.35,0,18.35,2.54,9.86,8.67,15.89,12.71,19.77,9.4,9.02,19.55,12.29,24.79,13.93,5.56,1.72,23.02,6.88,43.87,0,21.61-7.15,32.91-22.64,36.25-27.62.04-.06.4-.72.56-.68.15.06.03.74,0,.96-2.39,14.11-12,24.82-12,24.82h-.03,0Z"/>
+            </svg>
+            <svg class="logo-text" viewBox="0 0 151.35 20.52" xmlns="http://www.w3.org/2000/svg">
+                <path class="logo-fill" d="M0,20.2V.25h16.7v3.48H5.24v4.75h10.6v3.48H5.24v4.76h11.51v3.48H0Z"/>
+                <path class="logo-fill" d="M37.73,5.99c-.1-.79-.51-1.4-1.25-1.83-.73-.43-1.73-.65-2.99-.65-.85,0-1.58.1-2.17.29-.59.19-1.04.46-1.35.79s-.47.72-.47,1.15c-.02.36.08.67.28.94.21.27.49.5.85.69s.78.36,1.26.5.98.26,1.53.36l2.23.43c1.08.19,2.07.45,2.98.78.9.32,1.69.72,2.35,1.2.66.47,1.18,1.03,1.54,1.68.37.64.55,1.38.56,2.21,0,1.22-.39,2.28-1.16,3.17-.76.89-1.86,1.58-3.29,2.08s-3.16.74-5.17.74-3.74-.25-5.22-.74-2.63-1.23-3.46-2.2c-.83-.97-1.26-2.17-1.3-3.61h5.07c.06.67.3,1.23.72,1.67s.99.78,1.71,1c.71.22,1.52.34,2.43.34s1.66-.1,2.32-.31c.66-.21,1.17-.5,1.53-.87s.54-.79.54-1.28c0-.45-.16-.83-.49-1.13s-.8-.56-1.43-.78c-.63-.21-1.39-.41-2.29-.58l-2.7-.55c-2.09-.41-3.74-1.05-4.95-1.92-1.21-.87-1.81-2.04-1.8-3.52,0-1.21.39-2.26,1.2-3.17.81-.9,1.93-1.61,3.35-2.11,1.42-.51,3.03-.76,4.84-.76s3.45.25,4.82.76c1.38.51,2.45,1.21,3.21,2.11.77.9,1.16,1.95,1.19,3.14h-5.02v-.02Z"/>
+                <path class="logo-fill" d="M49.07,3.73V.25h20.36v3.48h-7.59v16.47h-5.18V3.73h-7.59Z"/>
+                <path class="logo-fill" d="M77.42,20.2h-5.62L80.36.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM77.07,12.36h13.26v3.29h-13.26v-3.29Z"/>
+                <path class="logo-fill" d="M110.83,20.2h-8.79V.25h8.86c2.49,0,4.64.4,6.44,1.19s3.19,1.94,4.16,3.42,1.46,3.27,1.46,5.34-.48,3.86-1.46,5.36c-.97,1.49-2.37,2.64-4.18,3.44s-3.98,1.2-6.49,1.2ZM107.28,16.59h3.33c1.55,0,2.85-.22,3.92-.67,1.06-.44,1.86-1.14,2.4-2.08s.81-2.15.81-3.64-.27-2.68-.81-3.61c-.54-.94-1.33-1.62-2.39-2.07-1.06-.44-2.36-.66-3.91-.66h-3.34v12.72h-.01Z"/>
+                <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
+            </svg>
+        </a>
+        <div class="nav-links">
+            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+            <a class="nav-link" href="{{ url_for('technologies') }}">Technologies</a>
+            <a href="{{ url_for('index') }}#contact" class="nav-cta">Let's Talk</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
     <main>
-        <h1>Hello World</h1>
+        <!-- Hero Section (same structure as home and technologies pages) -->
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-tag">Who We Are</p>
+                <h1 class="hero-title">
+                    <span class="line">Building digital</span>
+                    <span class="line"><em>experiences</em> that</span>
+                    <span class="line">move businesses forward.</span>
+                </h1>
+                <p class="hero-desc">We're a team of designers, developers, and strategists who believe in creating digital solutions that don't just look good—they work flawlessly, scale effortlessly, and stay secure. Always.</p>
+            </div>
+            <div class="hero-visual">
+                <div class="hex-grid">
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                    <div class="hex"></div>
+                </div>
+                <div class="core-container">
+                    <div class="core"></div>
+                    <div class="core-ring"></div>
+                    <div class="core-ring"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="about-section">
+            <div class="about-container">
+                <div class="section-header">
+                    <p class="section-tag">Our Story</p>
+                    <h2 class="section-title">From concept to deployment, we handle it all.</h2>
+                </div>
+                <div class="about-story-grid">
+                    <div class="about-story-text">
+                        <p>Estada was born from a simple observation: too many businesses struggle with fragmented digital services. Design agencies don't code. Development shops don't secure. Hosting providers don't optimize.</p>
+                        <p>We decided to change that. We built Estada as a complete tech logistics firm—one team that handles every aspect of your digital presence, from initial concept to ongoing security and growth.</p>
+                        <p>What sets us apart? Our <strong>security guarantee</strong>. We don't just build websites; we fortify them. And if something goes wrong on our watch, we take full responsibility. No questions asked.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="about-section about-values">
+            <div class="about-container">
+                <div class="section-header">
+                    <p class="section-tag">What We Stand For</p>
+                    <h2 class="section-title">Our Values</h2>
+                </div>
+                <div class="values-grid">
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3>Security First</h3>
+                        <p>Every project includes enterprise-grade security. We guarantee it—literally. If your site gets breached, we cover the damages.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <h3>Speed & Performance</h3>
+                        <p>We build fast, scalable applications that grow with you. No technical debt, no shortcuts—just clean, efficient code.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <h3>Partnership, Not Vendors</h3>
+                        <p>We're not here to build and disappear. We're your long-term tech partners, invested in your success.</p>
+                    </article>
+                    <article class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <h3>Transparency</h3>
+                        <p>No hidden fees, no surprises. Clear communication, honest timelines, and straightforward pricing from day one.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="about-section about-why">
+            <div class="about-container">
+                <div class="section-header">
+                    <p class="section-tag">Why Estada</p>
+                    <h2 class="section-title">The complete digital solution.</h2>
+                </div>
+                <div class="about-why-content">
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Security Guarantee</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Threat Monitoring</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">0</div>
+                            <div class="stat-label">Hidden Fees</div>
+                        </div>
+                    </div>
+                    <div class="about-why-text">
+                        <p>Most agencies specialize in one thing. We specialize in <em>everything</em>—and we do it all under one roof, with one guarantee.</p>
+                        <ul class="about-why-list">
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Full-stack development from design to deployment</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Enterprise-grade security with full liability coverage</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Managed hosting with 24/7 monitoring and support</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Growth marketing and optimization strategies</span>
+                            </li>
+                            <li>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>One team, one point of contact, zero headaches</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="about-section about-cta">
+            <div class="about-container">
+                <div class="about-cta-content">
+                    <h2>Ready to build something great?</h2>
+                    <p>Let's discuss how we can help move your business forward.</p>
+                    <div class="about-cta-actions">
+                        <a href="{{ url_for('index') }}#contact" class="btn btn-primary">Start a Project</a>
+                        <a href="{{ url_for('technologies') }}" class="btn btn-ghost">View Technologies</a>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <!-- Footer (same structure as other pages) -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <a href="{{ url_for('index') }}" class="footer-logo" aria-label="Estada">
+                    <svg class="logo-icon" viewBox="0 0 237.17 225.5" xmlns="http://www.w3.org/2000/svg">
+                        <polygon class="logo-stroke" points="228.67 3.78 228.62 221.72 9.17 221.6 9.17 4.09 228.67 3.78"/>
+                        <path class="logo-fill" d="M187.59,158.02c-20.16,22.51-47.6,28.79-47.6,28.79-8.42,1.93-25.93,5.69-45.9-1.75-3.54-1.31-16.97-6.65-28.99-19.88-3.88-4.26-10.95-12.22-15.02-24.9-5.23-16.32-2.18-30.17-.77-36.19,3.66-15.64,11.5-25.81,16.42-32.07,10.2-12.94,21.11-19.84,27.21-23.61,6.69-4.14,16.35-10.01,30.47-13.09,6.21-1.36,21.28-4.47,38.83.77,5.13,1.53,11.62,3.54,18.35,8.98,2.45,1.99,10.48,8.65,14.37,20.4,5.14,15.55-.59,29.11-2.83,34.39-5.04,11.91-12.88,18.82-16.94,22.33-10.78,9.3-21.52,12.59-24.13,13.34-4.79,1.39-17.32,4.85-31.46.47-3.98-1.22-9.04-2.82-13.71-7.47-5-4.97-6.8-10.67-7.5-13.58,0-.01-.03-.22.13-.37.13-.12.28-.1.31-.1,6.37,1.86,28.08,7.3,49.73-3.67,4.07-2.06,15.88-8.62,23.86-21.95,2.82-4.69,8.33-13.89,5.59-23.29-.31-1.08-1.25-4.16-3.85-7.09-1.05-1.19-4.64-4.89-13.18-6.44-14.77-2.68-30.26,3.63-32.78,4.69-21.24,8.89-32.41,24.47-37.28,31.44-6.93,9.92-8.77,16.82-9.49,20.34-.75,3.67-2.06,10.35,0,18.35,2.54,9.86,8.67,15.89,12.71,19.77,9.4,9.02,19.55,12.29,24.79,13.93,5.56,1.72,23.02,6.88,43.87,0,21.61-7.15,32.91-22.64,36.25-27.62.04-.06.4-.72.56-.68.15.06.03.74,0,.96-2.39,14.11-12,24.82-12,24.82h-.03,0Z"/>
+                    </svg>
+                    <svg class="logo-text" viewBox="0 0 151.35 20.52" xmlns="http://www.w3.org/2000/svg">
+                        <path class="logo-fill" d="M0,20.2V.25h16.7v3.48H5.24v4.75h10.6v3.48H5.24v4.76h11.51v3.48H0Z"/>
+                        <path class="logo-fill" d="M37.73,5.99c-.1-.79-.51-1.4-1.25-1.83-.73-.43-1.73-.65-2.99-.65-.85,0-1.58.1-2.17.29-.59.19-1.04.46-1.35.79s-.47.72-.47,1.15c-.02.36.08.67.28.94.21.27.49.5.85.69s.78.36,1.26.5.98.26,1.53.36l2.23.43c1.08.19,2.07.45,2.98.78.9.32,1.69.72,2.35,1.2.66.47,1.18,1.03,1.54,1.68.37.64.55,1.38.56,2.21,0,1.22-.39,2.28-1.16,3.17-.76.89-1.86,1.58-3.29,2.08s-3.16.74-5.17.74-3.74-.25-5.22-.74-2.63-1.23-3.46-2.2c-.83-.97-1.26-2.17-1.3-3.61h5.07c.06.67.3,1.23.72,1.67s.99.78,1.71,1c.71.22,1.52.34,2.43.34s1.66-.1,2.32-.31c.66-.21,1.17-.5,1.53-.87s.54-.79.54-1.28c0-.45-.16-.83-.49-1.13s-.8-.56-1.43-.78c-.63-.21-1.39-.41-2.29-.58l-2.7-.55c-2.09-.41-3.74-1.05-4.95-1.92-1.21-.87-1.81-2.04-1.8-3.52,0-1.21.39-2.26,1.2-3.17.81-.9,1.93-1.61,3.35-2.11,1.42-.51,3.03-.76,4.84-.76s3.45.25,4.82.76c1.38.51,2.45,1.21,3.21,2.11.77.9,1.16,1.95,1.19,3.14h-5.02v-.02Z"/>
+                        <path class="logo-fill" d="M49.07,3.73V.25h20.36v3.48h-7.59v16.47h-5.18V3.73h-7.59Z"/>
+                        <path class="logo-fill" d="M77.42,20.2h-5.62L80.36.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM77.07,12.36h13.26v3.29h-13.26v-3.29Z"/>
+                        <path class="logo-fill" d="M110.83,20.2h-8.79V.25h8.86c2.49,0,4.64.4,6.44,1.19s3.19,1.94,4.16,3.42,1.46,3.27,1.46,5.34-.48,3.86-1.46,5.36c-.97,1.49-2.37,2.64-4.18,3.44s-3.98,1.2-6.49,1.2ZM107.28,16.59h3.33c1.55,0,2.85-.22,3.92-.67,1.06-.44,1.86-1.14,2.4-2.08s.81-2.15.81-3.64-.27-2.68-.81-3.61c-.54-.94-1.33-1.62-2.39-2.07-1.06-.44-2.36-.66-3.91-.66h-3.34v12.72h-.01Z"/>
+                        <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
+                    </svg>
+                </a>
+                <p>Tech logistics for the modern web.</p>
+            </div>
+            <p class="footer-copy">© 2026 Estada. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/about.js') }}"></script>
 </body>
 </html>
-
