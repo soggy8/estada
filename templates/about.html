@@ -30,14 +30,17 @@
             </svg>
         </a>
         <div class="nav-links">
-            <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-            <a class="nav-link" href="{{ url_for('technologies') }}">Technologies</a>
-            <a href="{{ url_for('index') }}#contact" class="nav-cta">Let's Talk</a>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle menu">
+    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+    <a class="nav-link" href="{{ url_for('about') }}">About</a>
+    <a href="#contact" class="nav-cta">Let's Talk</a>
+</div>
+
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
             <span></span>
             <span></span>
         </button>
+        <div class="nav-backdrop"></div>
     </nav>
 
     <main>
@@ -238,7 +241,6 @@
         </div>
     </footer>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/about.js') }}"></script>
 </body>
 </html>
