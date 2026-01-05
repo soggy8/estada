@@ -34,7 +34,15 @@
 .slider-track {
     display: flex;
     gap: 5rem;
-    animation: slide 35s linear infinite;
+    animation: slide 20s linear infinite;
+    will-change: transform;
+}
+
+@media (max-width: 768px) {
+    .slider-track {
+        animation: slide 12s linear infinite;
+        will-change: transform;
+    }
 }
 
 /* Make only Flask and Three.js logos white */
