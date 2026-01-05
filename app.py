@@ -23,11 +23,13 @@ Emails include user's email in reply_to for direct replies.
 """
 
 from flask import Flask, request, jsonify, render_template
+from flask_wtf.csrf import CSRFProtect, generate_csrf, validate_csrf
 from functools import wraps
 from datetime import datetime, timedelta
 import os
 import requests
 import logging
+import re
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -44,6 +46,18 @@ app.logger.setLevel(logging.INFO)
 # Production settings
 app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
+
+# CSRF Protection
+csrf = CSRFProtect(app)
+
+# Request size limits (16KB max payload)
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024  # 16KB
+
+# Email validation regex (RFC 5322 compliant pattern)
+EMAIL_REGEX = re.compile(
+    r'^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?@'
+    r'[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}$'
+)
 
 # Simple rate limiting storage (in production, use Redis or similar)
 rate_limit_storage = {}
@@ -117,6 +131,11 @@ def rate_limit(f):
         return f(*args, **kwargs)
     return decorated_function
 
+@app.errorhandler(413)
+def request_entity_too_large(error):
+    """Handle request size limit exceeded"""
+    return jsonify({'success': False, 'message': 'Request too large. Please reduce the size of your message.'}), 413
+
 @app.after_request
 def set_security_headers(response):
     """Add security headers to all responses"""
@@ -142,9 +161,17 @@ def technologies():
     """Serve the technologies.html page"""
     return render_template('technologies.html')
 
+@app.route('/api/csrf-token')
+def get_csrf_token():
+    """Get CSRF token for form submission"""
+    return jsonify({'csrf_token': generate_csrf()})
+
 @app.route('/api/debug/config')
 def debug_config():
-    """Debug endpoint to check configuration (remove in production)"""
+    """Debug endpoint to check configuration (protected - only available in DEBUG mode)"""
+    if not app.config['DEBUG']:
+        return jsonify({'error': 'Not found'}), 404
+    
     return jsonify({
         'RESEND_API_KEY_present': bool(RESEND_API_KEY),
         'RESEND_API_KEY_length': len(RESEND_API_KEY) if RESEND_API_KEY else 0,
@@ -157,11 +184,36 @@ def debug_config():
     })
 
 @app.route('/api/contact', methods=['POST'])
+@csrf.exempt  # We'll handle CSRF manually via token in request
 @rate_limit
 def contact():
     """Handle contact form submissions"""
     try:
+        # Check request size
+        if request.content_length and request.content_length > app.config['MAX_CONTENT_LENGTH']:
+            return jsonify({'success': False, 'message': 'Request too large.'}), 413
+        
         data = request.get_json()
+        
+        # Validate CSRF token
+        csrf_token = data.get('csrf_token')
+        if not csrf_token:
+            app.logger.warning('Contact form submission missing CSRF token')
+            return jsonify({'success': False, 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
+        
+        try:
+            # Validate CSRF token (this will raise an exception if invalid)
+            validate_csrf(csrf_token)
+        except Exception as e:
+            app.logger.warning(f'Invalid CSRF token: {str(e)}')
+            return jsonify({'success': False, 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
+        
+        # Honeypot field check (bots often fill hidden fields)
+        honeypot = data.get('website', '').strip()  # Hidden field that should be empty
+        if honeypot:
+            app.logger.warning(f'Honeypot triggered from IP {request.remote_addr}')
+            # Return success to avoid revealing the honeypot
+            return jsonify({'success': True, 'message': 'Message sent successfully!'}), 200
         
         # Validate required fields
         if not data.get('name') or not data.get('email'):
@@ -173,9 +225,20 @@ def contact():
         service = str(data.get('service', 'Not specified')).strip()[:50]
         message = str(data.get('message', 'No message provided')).strip()[:2000]  # Limit length
         
-        # Validate email format
-        if '@' not in email or '.' not in email.split('@')[1]:
+        # Enhanced email validation using regex
+        if not EMAIL_REGEX.match(email):
             return jsonify({'success': False, 'message': 'Invalid email address format.'}), 400
+        
+        # Additional email validation: check for suspicious patterns
+        if email.count('@') != 1:
+            return jsonify({'success': False, 'message': 'Invalid email address format.'}), 400
+        
+        # Block common disposable email domains (optional - can be expanded)
+        disposable_domains = ['tempmail.com', 'guerrillamail.com', '10minutemail.com']
+        email_domain = email.split('@')[1].lower()
+        if email_domain in disposable_domains:
+            app.logger.warning(f'Blocked disposable email domain: {email_domain}')
+            return jsonify({'success': False, 'message': 'Please use a valid business email address.'}), 400
         
         # Basic spam protection - check for common spam patterns
         spam_keywords = ['http://', 'https://', 'www.']

@@ -67,8 +67,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form submission handler
     const contactForm = document.querySelector('.contact-form');
     if (contactForm) {
+        // Fetch CSRF token on page load
+        let csrfToken = null;
+        (async () => {
+            try {
+                const response = await fetch('/api/csrf-token');
+                const data = await response.json();
+                csrfToken = data.csrf_token;
+            } catch (error) {
+                console.error('Failed to fetch CSRF token:', error);
+            }
+        })();
+        
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            
+            // Check if CSRF token is available
+            if (!csrfToken) {
+                showNotification('Security token not loaded. Please refresh the page and try again.', 'error');
+                return;
+            }
             
             // Get form data
             const formData = new FormData(contactForm);
@@ -76,7 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 name: formData.get('name'),
                 email: formData.get('email'),
                 service: formData.get('service') || '',
-                message: formData.get('message') || ''
+                message: formData.get('message') || '',
+                website: formData.get('website') || '', // Honeypot field
+                csrf_token: csrfToken
             };
             
             // Simple validation
@@ -86,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}$/;
             if (!emailRegex.test(data.email)) {
                 showNotification('Please enter a valid email address.', 'error');
                 return;
@@ -112,8 +132,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (result.success) {
                     showNotification('Message sent! We\'ll be in touch soon.', 'success');
                     contactForm.reset();
+                    // Refresh CSRF token after successful submission
+                    try {
+                        const tokenResponse = await fetch('/api/csrf-token');
+                        const tokenData = await tokenResponse.json();
+                        csrfToken = tokenData.csrf_token;
+                    } catch (error) {
+                        console.error('Failed to refresh CSRF token:', error);
+                    }
                 } else {
                     showNotification(result.message || 'Failed to send message. Please try again.', 'error');
+                    // Refresh CSRF token on error (token might be expired)
+                    if (response.status === 403) {
+                        try {
+                            const tokenResponse = await fetch('/api/csrf-token');
+                            const tokenData = await tokenResponse.json();
+                            csrfToken = tokenData.csrf_token;
+                        } catch (error) {
+                            console.error('Failed to refresh CSRF token:', error);
+                        }
+                    }
                 }
             } catch (error) {
                 console.error('Error:', error);
