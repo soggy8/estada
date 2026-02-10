@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/technologies.css') }}">
@@ -30,17 +30,19 @@
             <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
         </svg>
     </a>
-    <div class="nav-links">
-<a class="nav-link" href="{{ url_for('index') }}">Home</a>
-<a class="nav-link" href="{{ url_for('about') }}">About</a>
-<a href="{{ url_for('index') }}#contact" class="nav-cta">Let's Talk</a>
-</div>
-
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
+    <div class="nav-right">
+        <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+        <div class="nav-links">
+            <a class="nav-link" href="{{ url_for('index') }}" data-translate="nav.home">Home</a>
+            <a class="nav-link" href="{{ url_for('about') }}" data-translate="nav.about">About</a>
+            <a href="{{ url_for('index') }}#contact" class="nav-cta" data-translate="nav.letsTalk">Let's Talk</a>
+        </div>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
     <div class="nav-backdrop"></div>
 </nav>
 
@@ -49,13 +51,13 @@
 <!-- HERO (1:1 COPY) -->
 <section class="hero">
     <div class="hero-content">
-        <p class="hero-tag">Our Technology Stack</p>
+        <p class="hero-tag" data-translate="techPage.heroTag">Our Technology Stack</p>
         <h1 class="hero-title">
-            <span class="line">Built with</span>
-            <span class="line"><em>proven</em> technology</span>
-            <span class="line">that scales.</span>
+            <span class="line" data-translate="techPage.heroTitle1">Built with</span>
+            <span class="line"><em data-translate="techPage.heroTitle2">proven</em> <span data-translate="techPage.heroTitle3">technology</span></span>
+            <span class="line" data-translate="techPage.heroTitle4">that scales.</span>
         </h1>
-        <p class="hero-desc">
+        <p class="hero-desc" data-translate="techPage.heroDesc">
             Every tool we use is selected for reliability, security,
             and long-term maintainability. No experiments in production.
         </p>
@@ -77,12 +79,12 @@
 
 <!-- TECH STACK -->
 <section class="tech-stack">
-    <h1 class="section-title" align="center">Tech Stack</h1>
+    <h1 class="section-title" align="center" data-translate="techPage.stackTitle">Tech Stack</h1>
 
     <div class="tech-cards">
         <!-- Backend -->
         <div class="tech-card">
-            <h3>Backend</h3>
+            <h3 data-translate="techPage.backend">Backend</h3>
             <ul>
                 <li>Python</li>
                 <li>Flask</li>
@@ -94,7 +96,7 @@
 
         <!-- Frontend -->
         <div class="tech-card">
-            <h3>Frontend</h3>
+            <h3 data-translate="techPage.frontend">Frontend</h3>
             <ul>
                 <li>HTML / CSS / JavaScript</li>
                 <li>React</li>
@@ -104,7 +106,7 @@
 
         <!-- Design & 3D -->
         <div class="tech-card">
-            <h3>Design & 3D</h3>
+            <h3 data-translate="techPage.design3d">Design & 3D</h3>
             <ul>
                 <li>Adobe Illustrator</li>
                 <li>FreeCAD</li>
@@ -116,7 +118,7 @@
 
         <!-- Infrastructure -->
         <div class="tech-card">
-            <h3>Infrastructure</h3>
+            <h3 data-translate="techPage.infrastructure">Infrastructure</h3>
             <ul>
                 <li>Self-hosted servers</li>
                 <li>Custom deployments</li>
@@ -184,12 +186,14 @@
                         <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
                     </svg>
                 </a>
-                <p>Tech logistics for the modern web.</p>
+                <p data-translate="footer.tagline">Tech logistics for the modern web.</p>
             </div>
-            <p class="footer-copy">© 2026 Estada. All rights reserved.</p>
+            <p class="footer-copy" data-translate="footer.copyright">© 2026 Estada. All rights reserved.</p>
         </div>
 </footer>
 
+<script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+<script src="{{ url_for('static', filename='js/translate.js') }}"></script>
 <script src="{{ url_for('static', filename='js/technologies.js') }}"></script>
 </body>
 </html>

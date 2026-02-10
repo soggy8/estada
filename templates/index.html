@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
@@ -28,33 +28,35 @@
                 <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
             </svg>
         </a>
-        <div class="nav-links">
-    <a class="nav-link" href="{{ url_for('technologies') }}">Technologies</a>
-    <a class="nav-link" href="{{ url_for('about') }}">About</a>
-    <a href="#contact" class="nav-cta">Let's Talk</a>
-</div>
-
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="nav-right">
+            <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+            <div class="nav-links">
+                <a class="nav-link" href="{{ url_for('technologies') }}" data-translate="nav.technologies">Technologies</a>
+                <a class="nav-link" href="{{ url_for('about') }}" data-translate="nav.about">About</a>
+                <a href="#contact" class="nav-cta" data-translate="nav.letsTalk">Let's Talk</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
         <div class="nav-backdrop"></div>
     </nav>
 
     <main>
         <section class="hero">
             <div class="hero-content">
-                <p class="hero-tag">Tech Logistics & Digital Solutions</p>
+                <p class="hero-tag" data-translate="home.heroTag">Tech Logistics & Digital Solutions</p>
                 <h1 class="hero-title">
-                    <span class="line">We build</span>
-                    <span class="line"><em>digital</em> experiences</span>
-                    <span class="line">that move.</span>
+                    <span class="line" data-translate="home.heroTitle1">We build</span>
+                    <span class="line"><em data-translate="home.heroTitle2">digital</em> <span data-translate="home.heroTitle3">experiences</span></span>
+                    <span class="line" data-translate="home.heroTitle4">that move.</span>
                 </h1>
-                <p class="hero-desc">From concept to deployment, we handle the full stack of your digital presence—with <strong>guaranteed security</strong> and full liability coverage. If it gets hacked, we take responsibility.</p>
+                <p class="hero-desc" data-translate="home.heroDesc">From concept to deployment, we handle the full stack of your digital presence—with <strong>guaranteed security</strong> and full liability coverage. If it gets hacked, we take responsibility.</p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">Start a Project</a>
-                    <a href="#services" class="btn btn-ghost">Explore Services</a>
+                    <a href="#contact" class="btn btn-primary" data-translate="home.startProject">Start a Project</a>
+                    <a href="#services" class="btn btn-ghost" data-translate="home.exploreServices">Explore Services</a>
                 </div>
             </div>
             <div class="hero-visual">
@@ -78,25 +80,25 @@
         <section class="marquee-section">
             <div class="marquee">
                 <div class="marquee-track">
-                    <span>Design Systems</span>
+                    <span data-translate="marquee.designSystems">Design Systems</span>
                     <span>•</span>
-                    <span>Fullstack Dev</span>
+                    <span data-translate="marquee.fullstackDev">Fullstack Dev</span>
                     <span>•</span>
-                    <span>Cloud Hosting</span>
+                    <span data-translate="marquee.cloudHosting">Cloud Hosting</span>
                     <span>•</span>
-                    <span>Growth Marketing</span>
+                    <span data-translate="marquee.growthMarketing">Growth Marketing</span>
                     <span>•</span>
-                    <span>Security Guaranteed</span>
+                    <span data-translate="marquee.securityGuaranteed">Security Guaranteed</span>
                     <span>•</span>
-                    <span>Design Systems</span>
+                    <span data-translate="marquee.designSystems">Design Systems</span>
                     <span>•</span>
-                    <span>Fullstack Dev</span>
+                    <span data-translate="marquee.fullstackDev">Fullstack Dev</span>
                     <span>•</span>
-                    <span>Cloud Hosting</span>
+                    <span data-translate="marquee.cloudHosting">Cloud Hosting</span>
                     <span>•</span>
-                    <span>Growth Marketing</span>
+                    <span data-translate="marquee.growthMarketing">Growth Marketing</span>
                     <span>•</span>
-                    <span>Security Guaranteed</span>
+                    <span data-translate="marquee.securityGuaranteed">Security Guaranteed</span>
                     <span>•</span>
                 </div>
             </div>
@@ -111,25 +113,25 @@
                     </svg>
                 </div>
                 <div class="guarantee-text">
-                    <h2>Security Guarantee</h2>
-                    <p class="guarantee-headline">If your site gets hacked, <em>we take full responsibility.</em></p>
-                    <p class="guarantee-desc">We don't just build websites—we fortify them. Every project includes enterprise-grade security protocols, continuous monitoring, and our ironclad guarantee: if a breach occurs on our watch, we cover the damages. No questions asked.</p>
+                    <h2 data-translate="guarantee.title">Security Guarantee</h2>
+                    <p class="guarantee-headline" data-translate="guarantee.headline">If your site gets hacked, <em>we take full responsibility.</em></p>
+                    <p class="guarantee-desc" data-translate="guarantee.desc">We don't just build websites—we fortify them. Every project includes enterprise-grade security protocols, continuous monitoring, and our ironclad guarantee: if a breach occurs on our watch, we cover the damages. No questions asked.</p>
                     <ul class="guarantee-features">
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>End-to-end encryption</span>
+                            <span data-translate="guarantee.encryption">End-to-end encryption</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>24/7 threat monitoring</span>
+                            <span data-translate="guarantee.monitoring">24/7 threat monitoring</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Regular security audits</span>
+                            <span data-translate="guarantee.audits">Regular security audits</span>
                         </li>
                         <li>
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span>Full liability coverage</span>
+                            <span data-translate="guarantee.liability">Full liability coverage</span>
                         </li>
                     </ul>
                 </div>
@@ -138,8 +140,8 @@
 
         <section id="services" class="services">
             <div class="section-header">
-                <p class="section-tag">What We Do</p>
-                <h2 class="section-title">Services</h2>
+                <p class="section-tag" data-translate="services.tag">What We Do</p>
+                <h2 class="section-title" data-translate="services.title">Services</h2>
             </div>
             <div class="services-grid">
                 <article class="service-card">
@@ -149,12 +151,12 @@
                             <path d="M3 9h18M9 21V9"/>
                         </svg>
                     </div>
-                    <h3>Design</h3>
-                    <p>UI/UX design, brand identity, and design systems that create lasting impressions and seamless experiences.</p>
+                    <h3 data-translate="services.design.title">Design</h3>
+                    <p data-translate="services.design.desc">UI/UX design, brand identity, and design systems that create lasting impressions and seamless experiences.</p>
                     <ul class="service-tags">
-                        <li>UI/UX</li>
-                        <li>Branding</li>
-                        <li>Prototyping</li>
+                        <li data-translate="serviceTag.uiux">UI/UX</li>
+                        <li data-translate="serviceTag.branding">Branding</li>
+                        <li data-translate="serviceTag.prototyping">Prototyping</li>
                     </ul>
                 </article>
                 <article class="service-card">
@@ -164,12 +166,12 @@
                             <polyline points="8,6 2,12 8,18"/>
                         </svg>
                     </div>
-                    <h3>Development</h3>
-                    <p>Fullstack engineering with modern frameworks. We build fast, scalable applications that grow with you.</p>
+                    <h3 data-translate="services.development.title">Development</h3>
+                    <p data-translate="services.development.desc">Fullstack engineering with modern frameworks. We build fast, scalable applications that grow with you.</p>
                     <ul class="service-tags">
-                        <li>React</li>
-                        <li>Python</li>
-                        <li>APIs</li>
+                        <li data-translate="serviceTag.react">React</li>
+                        <li data-translate="serviceTag.python">Python</li>
+                        <li data-translate="serviceTag.apis">APIs</li>
                     </ul>
                 </article>
                 <article class="service-card service-card-security">
@@ -179,12 +181,12 @@
                             <path d="M9 12l2 2 4-4"/>
                         </svg>
                     </div>
-                    <h3>Security</h3>
-                    <p>Enterprise-grade protection with our guarantee: if your site gets breached, we take full responsibility and cover damages.</p>
+                    <h3 data-translate="services.security.title">Security</h3>
+                    <p data-translate="services.security.desc">Enterprise-grade protection with our guarantee: if your site gets breached, we take full responsibility and cover damages.</p>
                     <ul class="service-tags">
-                        <li>Penetration Testing</li>
-                        <li>Monitoring</li>
-                        <li>Guaranteed</li>
+                        <li data-translate="serviceTag.penetration">Penetration Testing</li>
+                        <li data-translate="serviceTag.monitoring">Monitoring</li>
+                        <li data-translate="serviceTag.guaranteed">Guaranteed</li>
                     </ul>
                 </article>
                 <article class="service-card">
@@ -195,12 +197,12 @@
                             <path d="M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h3>Hosting & DevOps</h3>
-                    <p>Secure cloud infrastructure, CI/CD pipelines, and managed hosting with 24/7 threat monitoring built in.</p>
+                    <h3 data-translate="services.hosting.title">Hosting & DevOps</h3>
+                    <p data-translate="services.hosting.desc">Secure cloud infrastructure, CI/CD pipelines, and managed hosting with 24/7 threat monitoring built in.</p>
                     <ul class="service-tags">
-                        <li>AWS</li>
-                        <li>Docker</li>
-                        <li>99.9% Uptime</li>
+                        <li data-translate="serviceTag.aws">AWS</li>
+                        <li data-translate="serviceTag.docker">Docker</li>
+                        <li data-translate="serviceTag.uptime">99.9% Uptime</li>
                     </ul>
                 </article>
                 <article class="service-card">
@@ -209,12 +211,12 @@
                             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
                         </svg>
                     </div>
-                    <h3>Marketing</h3>
-                    <p>Data-driven growth strategies, SEO, and digital campaigns that turn visitors into loyal customers.</p>
+                    <h3 data-translate="services.marketing.title">Marketing</h3>
+                    <p data-translate="services.marketing.desc">Data-driven growth strategies, SEO, and digital campaigns that turn visitors into loyal customers.</p>
                     <ul class="service-tags">
-                        <li>SEO</li>
-                        <li>Analytics</li>
-                        <li>Campaigns</li>
+                        <li data-translate="serviceTag.seo">SEO</li>
+                        <li data-translate="serviceTag.analytics">Analytics</li>
+                        <li data-translate="serviceTag.campaigns">Campaigns</li>
                     </ul>
                 </article>
             </div>
@@ -222,119 +224,119 @@
 
         <section id="about" class="about">
             <div class="about-content">
-                <p class="section-tag">About Estada</p>
-                <h2 class="about-title">We're the <em>technical backbone</em> for ambitious brands.</h2>
-                <p class="about-text">Estada is a tech logistics firm built for the modern digital landscape. We combine strategic thinking with technical execution to deliver end-to-end solutions—from initial concept through deployment and beyond.</p>
-                <p class="about-text">Our approach is simple: understand deeply, build carefully, and scale intelligently. Whether you're launching a startup or transforming an enterprise, we're here to handle the complexity so you can focus on what matters.</p>
+                <p class="section-tag" data-translate="about.tag">About Estada</p>
+                <h2 class="about-title"><span data-translate="about.title1">We're the</span> <em data-translate="about.title2">technical backbone</em> <span data-translate="about.title3">for ambitious brands.</span></h2>
+                <p class="about-text" data-translate="about.text1">Estada is a tech logistics firm built for the modern digital landscape. We combine strategic thinking with technical execution to deliver end-to-end solutions—from initial concept through deployment and beyond.</p>
+                <p class="about-text" data-translate="about.text2">Our approach is simple: understand deeply, build carefully, and scale intelligently. Whether you're launching a startup or transforming an enterprise, we're here to handle the complexity so you can focus on what matters.</p>
                 <div class="stats">
                     <div class="stat">
                         <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Delivered</span>
+                        <span class="stat-label" data-translate="about.stats.projects">Projects Delivered</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Uptime SLA</span>
+                        <span class="stat-label" data-translate="about.stats.uptime">Uptime SLA</span>
                     </div>
                     <div class="stat">
                         <span class="stat-number">24/7</span>
-                        <span class="stat-label">Support</span>
+                        <span class="stat-label" data-translate="about.stats.support">Support</span>
                     </div>
                 </div>
             </div>
             <div class="about-visual">
                 <div class="float-card card-1">
                     <span class="card-icon">⚡</span>
-                    <span>Fast Delivery</span>
+                    <span data-translate="about.visual.fast">Fast Delivery</span>
                 </div>
                 <div class="float-card card-2">
                     <span class="card-icon">🔒</span>
-                    <span>Secure by Default</span>
+                    <span data-translate="about.visual.secure">Secure by Default</span>
                 </div>
                 <div class="float-card card-3">
                     <span class="card-icon">📈</span>
-                    <span>Scalable Systems</span>
+                    <span data-translate="about.visual.scalable">Scalable Systems</span>
                 </div>
             </div>
         </section>
 
         <section class="process">
             <div class="section-header">
-                <p class="section-tag">How We Work</p>
-                <h2 class="section-title">Our Process</h2>
+                <p class="section-tag" data-translate="process.tag">How We Work</p>
+                <h2 class="section-title" data-translate="process.title">Our Process</h2>
             </div>
             <div class="process-steps">
                 <div class="process-step">
                     <span class="step-number">01</span>
-                    <h3>Discovery</h3>
-                    <p>We dive deep into your business, goals, and challenges to create a strategic roadmap.</p>
+                    <h3 data-translate="process.discovery.title">Discovery</h3>
+                    <p data-translate="process.discovery.desc">We dive deep into your business, goals, and challenges to create a strategic roadmap.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">02</span>
-                    <h3>Design</h3>
-                    <p>Wireframes, prototypes, and polished designs that align with your brand and users.</p>
+                    <h3 data-translate="process.design.title">Design</h3>
+                    <p data-translate="process.design.desc">Wireframes, prototypes, and polished designs that align with your brand and users.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">03</span>
-                    <h3>Build</h3>
-                    <p>Clean, tested code with continuous integration. We ship iteratively and transparently.</p>
+                    <h3 data-translate="process.build.title">Build</h3>
+                    <p data-translate="process.build.desc">Clean, tested code with continuous integration. We ship iteratively and transparently.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">04</span>
-                    <h3>Launch & Grow</h3>
-                    <p>Deployment, monitoring, and ongoing optimization. We're with you for the long haul.</p>
+                    <h3 data-translate="process.launch.title">Launch & Grow</h3>
+                    <p data-translate="process.launch.desc">Deployment, monitoring, and ongoing optimization. We're with you for the long haul.</p>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="contact">
             <div class="contact-content">
-                <p class="section-tag">Get in Touch</p>
-                <h2 class="contact-title">Ready to build<br>something <em>great</em>?</h2>
-                <p class="contact-desc">Tell us about your project and we'll get back to you within 24 hours.</p>
+                <p class="section-tag" data-translate="contact.tag">Get in Touch</p>
+                <h2 class="contact-title"><span data-translate="contact.title1">Ready to build</span><br><span data-translate="contact.title2">something</span> <em data-translate="contact.title3">great</em><span data-translate="contact.title4">?</span></h2>
+                <p class="contact-desc" data-translate="contact.desc">Tell us about your project and we'll get back to you within 24 hours.</p>
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                            <label for="name" data-translate="contact.name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" data-translate="contact.namePlaceholder" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                            <label for="email" data-translate="contact.email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="you@company.com" data-translate="contact.emailPlaceholder" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="service">What do you need?</label>
+                        <label for="service" data-translate="contact.service">What do you need?</label>
                         <select id="service" name="service">
-                            <option value="">Select a service</option>
-                            <option value="design">Design</option>
-                            <option value="development">Development</option>
-                            <option value="hosting">Hosting & DevOps</option>
-                            <option value="marketing">Marketing</option>
-                            <option value="full">Full Package</option>
+                            <option value="" data-translate="contact.servicePlaceholder">Select a service</option>
+                            <option value="design" data-translate="contact.serviceDesign">Design</option>
+                            <option value="development" data-translate="contact.serviceDevelopment">Development</option>
+                            <option value="hosting" data-translate="contact.serviceHosting">Hosting & DevOps</option>
+                            <option value="marketing" data-translate="contact.serviceMarketing">Marketing</option>
+                            <option value="full" data-translate="contact.serviceFull">Full Package</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="message">Tell us about your project</label>
-                        <textarea id="message" name="message" rows="4" placeholder="Brief description of what you're looking to build..."></textarea>
+                        <label for="message" data-translate="contact.message">Tell us about your project</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Brief description of what you're looking to build..." data-translate="contact.messagePlaceholder"></textarea>
                     </div>
                     <!-- Honeypot field - hidden from users but visible to bots -->
                     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
-                    <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-full" data-translate="contact.send">Send Message</button>
                 </form>
             </div>
             <div class="contact-info">
                 <div class="info-block">
-                    <h4>Email</h4>
+                    <h4 data-translate="contact.emailLabel">Email</h4>
                     <a href="mailto:andrejt@estada.dev">andrejt@estada.dev</a> <br>
                     <a href="mailto:krstem@estada.dev">krstem@estada.dev</a> <br>
                     <a href="mailto:filipm@estada.dev">filipm@estada.dev</a>
                 </div>
                 <div class="info-block">
-                    <h4>Location</h4>
-                    <p>Remote-first, globally distributed</p>
+                    <h4 data-translate="contact.locationLabel">Location</h4>
+                    <p data-translate="contact.location">Remote-first, globally distributed</p>
                 </div>
                 <div class="info-block">
-                    <h4>Social</h4>
+                    <h4 data-translate="contact.socialLabel">Social</h4>
                     <div class="social-links">
                         <a href="https://www.facebook.com/share/1DaMzXHXt5/" target="_blank" aria-label="Facebook">
                             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
@@ -369,12 +371,14 @@
                         <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
                     </svg>
                 </a>
-                <p>Tech logistics for the modern web.</p>
+                <p data-translate="footer.tagline">Tech logistics for the modern web.</p>
             </div>
-            <p class="footer-copy">© 2026 Estada. All rights reserved.</p>
+            <p class="footer-copy" data-translate="footer.copyright">© 2026 Estada. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/translate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 </head>
@@ -29,17 +29,19 @@
                 <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
             </svg>
         </a>
-        <div class="nav-links">
-    <a class="nav-link" href="{{ url_for('index') }}">Home</a>
-    <a class="nav-link" href="{{ url_for('technologies') }}">Technologies</a>
-    <a href="{{ url_for('index') }}#contact" class="nav-cta">Let's Talk</a>
-</div>
-
-        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="nav-right">
+            <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+            <div class="nav-links">
+                <a class="nav-link" href="{{ url_for('index') }}" data-translate="nav.home">Home</a>
+                <a class="nav-link" href="{{ url_for('technologies') }}" data-translate="nav.technologies">Technologies</a>
+                <a href="{{ url_for('index') }}#contact" class="nav-cta" data-translate="nav.letsTalk">Let's Talk</a>
+            </div>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
         <div class="nav-backdrop"></div>
     </nav>
 
@@ -47,13 +49,13 @@
         <!-- Hero Section (same structure as home and technologies pages) -->
         <section class="hero">
             <div class="hero-content">
-                <p class="hero-tag">Who We Are</p>
+                <p class="hero-tag" data-translate="aboutPage.heroTag">Who We Are</p>
                 <h1 class="hero-title">
-                    <span class="line">Building digital</span>
-                    <span class="line"><em>experiences</em> that</span>
-                    <span class="line">move businesses forward.</span>
+                    <span class="line" data-translate="aboutPage.heroTitle1">Building digital</span>
+                    <span class="line"><em data-translate="aboutPage.heroTitle2">experiences</em> <span data-translate="aboutPage.heroTitle3">that</span></span>
+                    <span class="line" data-translate="aboutPage.heroTitle4">move businesses forward.</span>
                 </h1>
-                <p class="hero-desc">We're a team of designers, developers, and strategists who believe in creating digital solutions that don't just look good—they work flawlessly, scale effortlessly, and stay secure. Always.</p>
+                <p class="hero-desc" data-translate="aboutPage.heroDesc">We're a team of designers, developers, and strategists who believe in creating digital solutions that don't just look good—they work flawlessly, scale effortlessly, and stay secure. Always.</p>
             </div>
             <div class="hero-visual">
                 <div class="hex-grid">
@@ -235,12 +237,14 @@
                         <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
                     </svg>
                 </a>
-                <p>Tech logistics for the modern web.</p>
+                <p data-translate="footer.tagline">Tech logistics for the modern web.</p>
             </div>
-            <p class="footer-copy">© 2026 Estada. All rights reserved.</p>
+            <p class="footer-copy" data-translate="footer.copyright">© 2026 Estada. All rights reserved.</p>
         </div>
     </footer>
 
+    <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/translate.js') }}"></script>
     <script src="{{ url_for('static', filename='js/about.js') }}"></script>
 </body>
 </html>
