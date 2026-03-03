@@ -83,6 +83,7 @@ TEST_EMAIL = os.getenv('TEST_EMAIL', 'atrendov1@gmail.com')  # Your Resend accou
 # If using @estada.dev addresses, you must set up email hosting/forwarding first
 # For testing, use real email addresses (e.g., Gmail) that definitely work
 RECIPIENT_EMAILS = [
+    'atrendov1@gmail.com',
     'andrejt@estada.dev',
     'krstem@estada.dev',
     'filipm@estada.dev'
