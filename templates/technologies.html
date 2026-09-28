@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,7 +31,7 @@
         </svg>
     </a>
     <div class="nav-right">
-        <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+        <button id="lang-toggle" class="lang-toggle" aria-label="Switch to English">EN</button>
         <div class="nav-links">
             <a class="nav-link" href="{{ url_for('index') }}" data-translate="nav.home">Home</a>
             <a class="nav-link" href="{{ url_for('about') }}" data-translate="nav.about">About</a>
@@ -51,16 +51,13 @@
 <!-- HERO (1:1 COPY) -->
 <section class="hero">
     <div class="hero-content">
-        <p class="hero-tag" data-translate="techPage.heroTag">Our Technology Stack</p>
+        <p class="hero-tag" data-translate="techPage.heroTag">The tools behind the sites</p>
         <h1 class="hero-title">
-            <span class="line" data-translate="techPage.heroTitle1">Built with</span>
-            <span class="line"><em data-translate="techPage.heroTitle2">proven</em> <span data-translate="techPage.heroTitle3">technology</span></span>
-            <span class="line" data-translate="techPage.heroTitle4">that scales.</span>
+            <span class="line" data-translate="techPage.heroTitle1">Chosen</span>
+            <span class="line"><em data-translate="techPage.heroTitle2">for the work</em> <span data-translate="techPage.heroTitle3">we</span></span>
+            <span class="line" data-translate="techPage.heroTitle4">actually ship.</span>
         </h1>
-        <p class="hero-desc" data-translate="techPage.heroDesc">
-            Every tool we use is selected for reliability, security,
-            and long-term maintainability. No experiments in production.
-        </p>
+        <p class="hero-desc" data-translate="techPage.heroDesc">Python and the browser for the sites you can open. React when the product is an app. Servers we run ourselves, so a site stays online after launch.</p>
     </div>
 
     <div class="hero-visual">
@@ -85,6 +82,7 @@
         <!-- Backend -->
         <div class="tech-card">
             <h3 data-translate="techPage.backend">Backend</h3>
+            <p class="tech-why" data-translate="techPage.backendWhy">Python and Flask run the sites we ship: menus, forms, and product pages. FastAPI is for services that need a cleaner API.</p>
             <ul>
                 <li>Python</li>
                 <li>Flask</li>
@@ -97,6 +95,7 @@
         <!-- Frontend -->
         <div class="tech-card">
             <h3 data-translate="techPage.frontend">Frontend</h3>
+            <p class="tech-why" data-translate="techPage.frontendWhy">HTML, CSS, and JavaScript for the venue and product sites. React when the product is an app, as with Moja Strumica.</p>
             <ul>
                 <li>HTML / CSS / JavaScript</li>
                 <li>React</li>
@@ -107,6 +106,7 @@
         <!-- Design & 3D -->
         <div class="tech-card">
             <h3 data-translate="techPage.design3d">Design & 3D</h3>
+            <p class="tech-why" data-translate="techPage.designWhy">Figma for the interface. Illustrator, Blender, and CAD when a project needs a mark, a 3D visual, or a physical product like GrowHub.</p>
             <ul>
                 <li>Adobe Illustrator</li>
                 <li>FreeCAD</li>
@@ -119,6 +119,7 @@
         <!-- Infrastructure -->
         <div class="tech-card">
             <h3 data-translate="techPage.infrastructure">Infrastructure</h3>
+            <p class="tech-why" data-translate="techPage.infraWhy">The live sites run on servers we administer. AWS only when a project needs it.</p>
             <ul>
                 <li>Self-hosted servers</li>
                 <li>Custom deployments</li>

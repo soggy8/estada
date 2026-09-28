@@ -64,16 +64,13 @@ html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
 }
 
-/* Macedonian: Cyrillic font + slightly smaller typography + no bold */
+/* Macedonian uses a Cyrillic face. Sizes and weights stay with the rest of the site. */
 html[lang="mk"] {
-    font-size: 93%;
     --font-display: 'Source Sans 3', sans-serif;
     --font-serif: 'Source Sans 3', serif;
-}
-html[lang="mk"] * {
-    font-weight: 400 !important;
 }
 
 body {
@@ -263,8 +260,8 @@ img {
     padding: 8px;
     z-index: 1001;
     position: relative;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     justify-content: center;
     align-items: center;
 }
@@ -619,120 +616,146 @@ img {
 }
 
 /* ========================================
-   Security Guarantee Section
+   Selected Work
    ======================================== */
-.guarantee {
+.work {
     padding: var(--section-padding) var(--container-padding);
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     margin: 0 auto;
 }
 
-.guarantee-content {
+.work-grid {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 60px;
-    align-items: start;
-    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(15, 32, 56, 0.8) 100%);
-    border: 1px solid var(--border-blue);
-    border-radius: 24px;
-    padding: 60px;
-    position: relative;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+.work-card {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(15, 32, 56, 0.5) 100%);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0;
     overflow: hidden;
+    text-decoration: none;
+    transition: border-color var(--transition-base), transform var(--transition-base);
 }
 
-.guarantee-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gradient-blue);
+.work-shot {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+    background: #0a0a0a;
 }
 
-.guarantee-content::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 60%;
-    height: 200%;
-    background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.1) 0%, transparent 60%);
-    pointer-events: none;
+.work-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 22px 24px;
 }
 
-.guarantee-badge {
-    width: 100px;
-    height: 100px;
+.work-card:nth-child(4) {
+    grid-column: 2 / span 2;
+}
+
+.work-card:nth-child(5) {
+    grid-column: 4 / span 2;
+}
+
+.work-card:hover {
+    border-color: var(--border-blue);
+    transform: translateY(-4px);
+}
+
+.work-domain {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--blue-400);
+}
+
+.work-card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.work-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* ========================================
+   Founder
+   ======================================== */
+.founder {
+    padding: var(--section-padding) var(--container-padding);
+    max-width: calc(var(--container-width) + var(--container-padding) * 2);
+    margin: 0 auto;
+}
+
+.founder-layout {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background: var(--gradient-blue);
+    justify-content: space-between;
+    gap: 48px;
+}
+
+.founder-photo {
+    display: block;
+    width: 220px;
+    flex: 0 0 220px;
+    margin-left: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 18%;
     border-radius: 20px;
-    color: white;
-    flex-shrink: 0;
+    border: 1px solid var(--border);
 }
 
-.guarantee-badge svg {
-    width: 50px;
-    height: 50px;
+.founder-content {
+    max-width: 720px;
 }
 
-.guarantee-text {
-    position: relative;
-    z-index: 1;
-}
-
-.guarantee-text h2 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--blue-400);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-}
-
-.guarantee-headline {
-    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+.founder-title {
+    font-size: clamp(2rem, 4vw, 3.2rem);
     font-weight: 700;
-    line-height: 1.2;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
     margin-bottom: 20px;
 }
 
-.guarantee-headline em {
+.founder-title em {
     font-family: var(--font-serif);
     font-style: italic;
     font-weight: 400;
     color: var(--blue-400);
 }
 
-.guarantee-desc {
-    font-size: 1.05rem;
+.founder-text {
     color: var(--text-secondary);
-    margin-bottom: 32px;
-    max-width: 600px;
+    font-size: 1.05rem;
+    margin-bottom: 28px;
 }
 
-.guarantee-features {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    list-style: none;
-}
+@media (max-width: 768px) {
+    .founder-layout {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
 
-.guarantee-features li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.95rem;
-    font-weight: 500;
-}
-
-.guarantee-features svg {
-    width: 20px;
-    height: 20px;
-    color: var(--blue-400);
-    flex-shrink: 0;
+    .founder-photo {
+        width: 180px;
+        flex-basis: 180px;
+        margin-left: 0;
+    }
 }
 
 /* Security service card highlight */
@@ -785,8 +808,9 @@ img {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+    align-items: stretch;
 }
 
 .service-card {
@@ -797,6 +821,9 @@ img {
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .service-card::before {
@@ -875,6 +902,27 @@ img {
     background: var(--bg-tertiary);
     padding: 6px 12px;
     border-radius: 20px;
+}
+
+.service-reel {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: center;
+}
+
+.service-reel:hover {
+    transform: none;
+}
+
+.service-reel-video {
+    width: 168px;
+    aspect-ratio: 9 / 16;
+    height: auto;
+    object-fit: cover;
+    border-radius: 18px;
+    background: #000;
+    display: block;
 }
 
 /* ========================================
@@ -1353,13 +1401,28 @@ img {
     }
     
     .services-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: 1fr 1fr;
         gap: 20px;
     }
+
+    .service-reel {
+        grid-template-columns: 1fr;
+    }
+
+    .service-reel-video {
+        width: min(200px, 70%);
+    }
     
+    .work-grid,
     .process-steps {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+    }
+
+    .work-card,
+    .work-card:nth-child(4),
+    .work-card:nth-child(5) {
+        grid-column: auto;
     }
     
     .contact {
@@ -1377,22 +1440,6 @@ img {
     .info-block {
         flex: 1;
         min-width: 150px;
-    }
-    
-    .guarantee-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 48px;
-    }
-    
-    .guarantee-badge {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .guarantee-badge svg {
-        width: 40px;
-        height: 40px;
     }
     
     .form-row {
@@ -1535,7 +1582,16 @@ img {
     }
     
     .hero-visual {
-        max-width: 320px;
+        display: none;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
     }
     
     .core-container {
@@ -1584,8 +1640,13 @@ img {
     }
     
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .service-reel-video {
+        width: min(260px, 100%);
+        justify-self: center;
     }
     
     .service-card {
@@ -1618,13 +1679,26 @@ img {
     }
     
     .about-visual {
-        height: 220px;
+        order: 0;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
     }
     
-    .float-card {
-        padding: 10px 14px;
-        font-size: 0.8rem;
-        gap: 8px;
+    .float-card,
+    .card-1,
+    .card-2,
+    .card-3 {
+        position: static;
+        animation: none;
+        width: 100%;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        padding: 14px 16px;
+        font-size: 0.95rem;
     }
     
     .card-icon {
@@ -1724,22 +1798,16 @@ img {
         gap: 8px;
     }
     
-    .guarantee-content {
-        padding: 36px;
-        gap: 32px;
-    }
-    
-    .guarantee-headline {
-        font-size: clamp(1.5rem, 5vw, 2rem);
-    }
-    
-    .guarantee-desc {
+    .founder-text {
         font-size: 0.95rem;
     }
-    
-    .guarantee-features {
-        grid-template-columns: 1fr;
-        gap: 12px;
+
+    .founder-layout {
+        align-items: stretch;
+    }
+
+    .founder-photo {
+        align-self: center;
     }
 }
 
@@ -1766,6 +1834,10 @@ img {
     .hero-title {
         font-size: clamp(1.75rem, 7vw, 2.5rem);
     }
+
+    .hero-title .line > span {
+        display: block;
+    }
     
     .hero-desc {
         font-size: 0.95rem;
@@ -1781,8 +1853,7 @@ img {
     }
     
     .hero-visual {
-        max-width: 280px;
-        margin-top: 32px;
+        display: none;
     }
     
     .core-container {
@@ -1829,6 +1900,7 @@ img {
         font-size: clamp(1.6rem, 6vw, 2rem);
     }
     
+    .work-grid,
     .services-grid {
         grid-template-columns: 1fr;
     }
@@ -1866,37 +1938,12 @@ img {
         padding: 4px 10px;
     }
     
-    .guarantee-content {
-        padding: 24px;
-        gap: 24px;
+    .work-card h3 {
+        font-size: 1.15rem;
     }
     
-    .guarantee-badge {
-        width: 64px;
-        height: 64px;
-        border-radius: 14px;
-    }
-    
-    .guarantee-badge svg {
-        width: 32px;
-        height: 32px;
-    }
-    
-    .guarantee-text h2 {
-        font-size: 0.8rem;
-    }
-    
-    .guarantee-headline {
-        font-size: 1.3rem;
-    }
-    
-    .guarantee-desc {
+    .work-card p {
         font-size: 0.9rem;
-        margin-bottom: 24px;
-    }
-    
-    .guarantee-features li {
-        font-size: 0.85rem;
     }
     
     .about-title {
@@ -1908,12 +1955,7 @@ img {
     }
     
     .about-visual {
-        height: 180px;
-    }
-    
-    .float-card {
-        padding: 8px 12px;
-        font-size: 0.75rem;
+        height: auto;
     }
     
     .stats {
@@ -1994,7 +2036,8 @@ img {
 /* Touch device optimizations */
 @media (hover: none) {
     .service-card:hover,
-    .process-step:hover {
+    .process-step:hover,
+    .work-card:hover {
         transform: none;
     }
     

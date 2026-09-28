@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +30,7 @@
             </svg>
         </a>
         <div class="nav-right">
-            <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+            <button id="lang-toggle" class="lang-toggle" aria-label="Switch to English">EN</button>
             <div class="nav-links">
                 <a class="nav-link" href="{{ url_for('index') }}" data-translate="nav.home">Home</a>
                 <a class="nav-link" href="{{ url_for('technologies') }}" data-translate="nav.technologies">Technologies</a>
@@ -51,11 +51,11 @@
             <div class="hero-content">
                 <p class="hero-tag" data-translate="aboutPage.heroTag">Who We Are</p>
                 <h1 class="hero-title">
-                    <span class="line" data-translate="aboutPage.heroTitle1">Building digital</span>
-                    <span class="line"><em data-translate="aboutPage.heroTitle2">experiences</em> <span data-translate="aboutPage.heroTitle3">that</span></span>
-                    <span class="line" data-translate="aboutPage.heroTitle4">move businesses forward.</span>
+                    <span class="line" data-translate="aboutPage.heroTitle1">Design, build,</span>
+                    <span class="line"><em data-translate="aboutPage.heroTitle2">and host</em> <span data-translate="aboutPage.heroTitle3">in</span></span>
+                    <span class="line" data-translate="aboutPage.heroTitle4">one practice.</span>
                 </h1>
-                <p class="hero-desc" data-translate="aboutPage.heroDesc">We're a team of designers, developers, and strategists who believe in creating digital solutions that don't just look good—they work flawlessly, scale effortlessly, and stay secure. Always.</p>
+                <p class="hero-desc" data-translate="aboutPage.heroDesc">Estada is founded by Andrej Trendov, a full-stack developer and designer. The proof is live: sites and products built from concept through hosting.</p>
             </div>
             <div class="hero-visual">
                 <div class="hex-grid">
@@ -79,14 +79,14 @@
         <section class="about-section">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">Our Story</p>
-                    <h2 class="section-title">From concept to deployment, we handle it all.</h2>
+                    <p class="section-tag" data-translate="aboutPage.story.tag">Our Story</p>
+                    <h2 class="section-title" data-translate="aboutPage.story.title">One person, from the first sketch to the live site.</h2>
                 </div>
                 <div class="about-story-grid">
                     <div class="about-story-text">
-                        <p>Estada was born from a simple observation: too many businesses struggle with fragmented digital services. Design agencies don't code. Development shops don't secure. Hosting providers don't optimize.</p>
-                        <p>We decided to change that. We built Estada as a complete tech logistics firm—one team that handles every aspect of your digital presence, from initial concept to ongoing security and growth.</p>
-                        <p>What sets us apart? Our <strong>security guarantee</strong>. We don't just build websites; we fortify them. And if something goes wrong on our watch, we take full responsibility. No questions asked.</p>
+                        <p data-translate="aboutPage.story.text1">Estada is Andrej Trendov's studio in Strumica. A project stays with him: the design, the build, the hosting, and the video when the site needs something to post.</p>
+                        <p data-translate="aboutPage.story.text2">A cafe gets a menu, hours, and a location. A product gets a site that explains it and stays online after launch.</p>
+                        <p data-translate="aboutPage.story.text3">The five live sites are the proof: Generacija Cafe, Bliss Lounge, Moja Strumica, GrowHub, and AegisSRE.</p>
                     </div>
                 </div>
             </div>
@@ -96,8 +96,8 @@
         <section class="about-section about-values">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">What We Stand For</p>
-                    <h2 class="section-title">Our Values</h2>
+                    <p class="section-tag" data-translate="aboutPage.values.tag">What We Stand For</p>
+                    <h2 class="section-title" data-translate="aboutPage.values.title">Our Values</h2>
                 </div>
                 <div class="values-grid">
                     <article class="value-card">
@@ -107,8 +107,8 @@
                                 <path d="M9 12l2 2 4-4"/>
                             </svg>
                         </div>
-                        <h3>Security First</h3>
-                        <p>Every project includes enterprise-grade security. We guarantee it—literally. If your site gets breached, we cover the damages.</p>
+                        <h3 data-translate="aboutPage.values.security.title">Security First</h3>
+                        <p data-translate="aboutPage.values.security.desc">Security is part of the build: careful deployment, access control, and monitoring. We do not promise to cover every breach.</p>
                     </article>
                     <article class="value-card">
                         <div class="value-icon">
@@ -116,8 +116,8 @@
                                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                             </svg>
                         </div>
-                        <h3>Speed & Performance</h3>
-                        <p>We build fast, scalable applications that grow with you. No technical debt, no shortcuts—just clean, efficient code.</p>
+                        <h3 data-translate="aboutPage.values.speed.title">Speed & Performance</h3>
+                        <p data-translate="aboutPage.values.speed.desc">We build fast, scalable applications that grow with you. No technical debt, no shortcuts—just clean, efficient code.</p>
                     </article>
                     <article class="value-card">
                         <div class="value-icon">
@@ -127,8 +127,8 @@
                                 <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
                             </svg>
                         </div>
-                        <h3>Partnership, Not Vendors</h3>
-                        <p>We're not here to build and disappear. We're your long-term tech partners, invested in your success.</p>
+                        <h3 data-translate="aboutPage.values.partnership.title">Partnership, Not Vendors</h3>
+                        <p data-translate="aboutPage.values.partnership.desc">We're not here to build and disappear. We're your long-term tech partners, invested in your success.</p>
                     </article>
                     <article class="value-card">
                         <div class="value-icon">
@@ -136,8 +136,8 @@
                                 <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
                             </svg>
                         </div>
-                        <h3>Transparency</h3>
-                        <p>No hidden fees, no surprises. Clear communication, honest timelines, and straightforward pricing from day one.</p>
+                        <h3 data-translate="aboutPage.values.transparency.title">Transparency</h3>
+                        <p data-translate="aboutPage.values.transparency.desc">Clear communication, honest timelines, and straightforward pricing from day one.</p>
                     </article>
                 </div>
             </div>
@@ -147,56 +147,52 @@
         <section class="about-section about-why">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">Why Estada</p>
-                    <h2 class="section-title">The complete digital solution.</h2>
+                    <p class="section-tag" data-translate="aboutPage.why.tag">Why Estada</p>
+                    <h2 class="section-title" data-translate="aboutPage.why.title">The work stays in one place.</h2>
                 </div>
                 <div class="about-why-content">
                     <div class="about-stats">
                         <div class="stat-item">
-                            <div class="stat-number">100%</div>
-                            <div class="stat-label">Security Guarantee</div>
+                            <div class="stat-number">5</div>
+                            <div class="stat-label" data-translate="aboutPage.why.stats.sites">Live sites</div>
                         </div>
                         <div class="stat-item">
-                            <div class="stat-number">24/7</div>
-                            <div class="stat-label">Threat Monitoring</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">0</div>
-                            <div class="stat-label">Hidden Fees</div>
+                            <div class="stat-number">1</div>
+                            <div class="stat-label" data-translate="aboutPage.why.stats.person">Person you write to</div>
                         </div>
                     </div>
                     <div class="about-why-text">
-                        <p>Most agencies specialize in one thing. We specialize in <em>everything</em>—and we do it all under one roof, with one guarantee.</p>
+                        <p data-translate="aboutPage.why.text">Design, the build, hosting, and video stay with Andrej.</p>
                         <ul class="about-why-list">
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>Full-stack development from design to deployment</span>
+                                <span data-translate="aboutPage.why.list1">Full-stack development from design to deployment</span>
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>Enterprise-grade security with full liability coverage</span>
+                                <span data-translate="aboutPage.why.list2">Careful hosting, deployment, and monitoring</span>
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>Managed hosting with 24/7 monitoring and support</span>
+                                <span data-translate="aboutPage.why.list3">Hosting on servers we run ourselves</span>
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>Growth marketing and optimization strategies</span>
+                                <span data-translate="aboutPage.why.list4">Video filmed and edited for social media</span>
                             </li>
                             <li>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <polyline points="20 6 9 17 4 12"/>
                                 </svg>
-                                <span>One team, one point of contact, zero headaches</span>
+                                <span data-translate="aboutPage.why.list5">One person to talk to, from the first call through launch</span>
                             </li>
                         </ul>
                     </div>
@@ -204,15 +200,27 @@
             </div>
         </section>
 
+        <section class="founder">
+            <div class="founder-layout">
+                <div class="founder-content">
+                    <p class="section-tag" data-translate="founder.tag">Behind Estada</p>
+                    <h2 class="founder-title"><span data-translate="founder.title1">Founded by</span> <em>Andrej Trendov</em></h2>
+                    <p class="founder-text" data-translate="founder.text">Andrej is a full-stack developer and designer who started building websites at 10. He works in Python, Flask, FastAPI, and React, and also builds electronics with Arduino and ESP32. He won a national hackathon, holds a full scholarship to FINKI in North Macedonia, and placed first in the national Kengur competition.</p>
+                    <a href="https://trendov.dev" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-translate="founder.link">More at trendov.dev</a>
+                </div>
+                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204">
+            </div>
+        </section>
+
         <!-- CTA Section -->
         <section class="about-section about-cta">
             <div class="about-container">
                 <div class="about-cta-content">
-                    <h2>Ready to build something great?</h2>
-                    <p>Let's discuss how we can help move your business forward.</p>
+                    <h2 data-translate="aboutPage.cta.title">Ready to build something great?</h2>
+                    <p data-translate="aboutPage.cta.desc">Let's discuss how we can help move your business forward.</p>
                     <div class="about-cta-actions">
-                        <a href="{{ url_for('index') }}#contact" class="btn btn-primary">Start a Project</a>
-                        <a href="{{ url_for('technologies') }}" class="btn btn-ghost">View Technologies</a>
+                        <a href="{{ url_for('index') }}#contact" class="btn btn-primary" data-translate="aboutPage.cta.start">Start a Project</a>
+                        <a href="{{ url_for('technologies') }}" class="btn btn-ghost" data-translate="aboutPage.cta.viewTech">View Technologies</a>
                     </div>
                 </div>
             </div>

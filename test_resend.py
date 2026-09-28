@@ -12,7 +12,7 @@ RESEND_API_URL = 'https://api.resend.com/emails'
 SENDER_EMAIL = os.getenv('SENDER_EMAIL', 'onboarding@resend.dev')
 SENDER_NAME = os.getenv('SENDER_NAME', 'Estada Contact Form')
 DEV_MODE = os.getenv('DEV_MODE', 'True').lower() == 'true'
-TEST_EMAIL = os.getenv('TEST_EMAIL', 'andrejt@estada.dev')
+TEST_EMAIL = os.getenv('TEST_EMAIL', 'atrendov1@gmail.com')
 
 print("=== Resend API Configuration Test ===")
 print(f"RESEND_API_KEY present: {bool(RESEND_API_KEY)}")
@@ -32,7 +32,7 @@ if DEV_MODE:
     recipients = [TEST_EMAIL]
     print(f"DEV_MODE: Will send to test email: {TEST_EMAIL}")
 else:
-    recipients = ['andrejt@estada.dev', 'krstem@estada.dev', 'filipm@estada.dev']
+    recipients = ['atrendov1@gmail.com']
     print(f"Production mode: Will send to: {recipients}")
 
 print()

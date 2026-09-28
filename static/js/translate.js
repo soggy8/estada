@@ -3,7 +3,7 @@
     'use strict';
     
     const STORAGE_KEY = 'estada_lang';
-    const DEFAULT_LANG = 'en';
+    const DEFAULT_LANG = 'mk';
     
     let currentLang = localStorage.getItem(STORAGE_KEY) || DEFAULT_LANG;
     

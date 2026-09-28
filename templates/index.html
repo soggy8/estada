@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estada — Tech Logistics & Digital Solutions</title>
+    <title>Estada — Websites and products</title>
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,7 +29,7 @@
             </svg>
         </a>
         <div class="nav-right">
-            <button id="lang-toggle" class="lang-toggle" aria-label="Switch language">EN</button>
+            <button id="lang-toggle" class="lang-toggle" aria-label="Switch to English">EN</button>
             <div class="nav-links">
                 <a class="nav-link" href="{{ url_for('technologies') }}" data-translate="nav.technologies">Technologies</a>
                 <a class="nav-link" href="{{ url_for('about') }}" data-translate="nav.about">About</a>
@@ -47,13 +47,13 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <p class="hero-tag" data-translate="home.heroTag">Tech Logistics & Digital Solutions</p>
+                <p class="hero-tag" data-translate="home.heroTag">Websites and products</p>
                 <h1 class="hero-title">
-                    <span class="line" data-translate="home.heroTitle1">We build</span>
-                    <span class="line"><em data-translate="home.heroTitle2">digital</em> <span data-translate="home.heroTitle3">experiences</span></span>
-                    <span class="line" data-translate="home.heroTitle4">that move.</span>
+                    <span class="line" data-translate="home.heroTitle1">We design</span>
+                    <span class="line"><em data-translate="home.heroTitle2">and build</em> <span data-translate="home.heroTitle3">websites</span></span>
+                    <span class="line" data-translate="home.heroTitle4">that stay online.</span>
                 </h1>
-                <p class="hero-desc" data-translate="home.heroDesc">From concept to deployment, we handle the full stack of your digital presence—with <strong>guaranteed security</strong> and full liability coverage. If it gets hacked, we take responsibility.</p>
+                <p class="hero-desc" data-translate="home.heroDesc">Then we keep them online. The sites below are the proof.</p>
                 <div class="hero-actions">
                     <a href="#contact" class="btn btn-primary" data-translate="home.startProject">Start a Project</a>
                     <a href="#services" class="btn btn-ghost" data-translate="home.exploreServices">Explore Services</a>
@@ -80,61 +80,76 @@
         <section class="marquee-section">
             <div class="marquee">
                 <div class="marquee-track">
-                    <span data-translate="marquee.designSystems">Design Systems</span>
+                    <span data-translate="marquee.designSystems">Websites and apps</span>
                     <span>•</span>
-                    <span data-translate="marquee.fullstackDev">Fullstack Dev</span>
+                    <span data-translate="marquee.fullstackDev">Apps</span>
                     <span>•</span>
-                    <span data-translate="marquee.cloudHosting">Cloud Hosting</span>
+                    <span data-translate="marquee.cloudHosting">Domains and hosting</span>
                     <span>•</span>
-                    <span data-translate="marquee.growthMarketing">Growth Marketing</span>
+                    <span data-translate="marquee.growthMarketing">Video</span>
                     <span>•</span>
-                    <span data-translate="marquee.securityGuaranteed">Security Guaranteed</span>
+                    <span data-translate="marquee.clientWork">Client Websites</span>
                     <span>•</span>
-                    <span data-translate="marquee.designSystems">Design Systems</span>
+                    <span data-translate="marquee.designSystems">Websites and apps</span>
                     <span>•</span>
-                    <span data-translate="marquee.fullstackDev">Fullstack Dev</span>
+                    <span data-translate="marquee.fullstackDev">Apps</span>
                     <span>•</span>
-                    <span data-translate="marquee.cloudHosting">Cloud Hosting</span>
+                    <span data-translate="marquee.cloudHosting">Domains and hosting</span>
                     <span>•</span>
-                    <span data-translate="marquee.growthMarketing">Growth Marketing</span>
+                    <span data-translate="marquee.growthMarketing">Video</span>
                     <span>•</span>
-                    <span data-translate="marquee.securityGuaranteed">Security Guaranteed</span>
+                    <span data-translate="marquee.clientWork">Client Websites</span>
                     <span>•</span>
                 </div>
             </div>
         </section>
 
-        <section class="guarantee">
-            <div class="guarantee-content">
-                <div class="guarantee-badge">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        <path d="M9 12l2 2 4-4"/>
-                    </svg>
-                </div>
-                <div class="guarantee-text">
-                    <h2 data-translate="guarantee.title">Security Guarantee</h2>
-                    <p class="guarantee-headline" data-translate="guarantee.headline">If your site gets hacked, <em>we take full responsibility.</em></p>
-                    <p class="guarantee-desc" data-translate="guarantee.desc">We don't just build websites—we fortify them. Every project includes enterprise-grade security protocols, continuous monitoring, and our ironclad guarantee: if a breach occurs on our watch, we cover the damages. No questions asked.</p>
-                    <ul class="guarantee-features">
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span data-translate="guarantee.encryption">End-to-end encryption</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span data-translate="guarantee.monitoring">24/7 threat monitoring</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span data-translate="guarantee.audits">Regular security audits</span>
-                        </li>
-                        <li>
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-                            <span data-translate="guarantee.liability">Full liability coverage</span>
-                        </li>
-                    </ul>
-                </div>
+        <section id="work" class="work">
+            <div class="section-header">
+                <p class="section-tag" data-translate="work.tag">Selected Work</p>
+                <h2 class="section-title" data-translate="work.title">Sites we've shipped</h2>
+            </div>
+            <div class="work-grid">
+                <a class="work-card" href="https://generacijacafe.mk" target="_blank" rel="noopener noreferrer">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/generacija.webp') }}" alt="Generacija Cafe homepage" width="1280" height="727">
+                    <div class="work-body">
+                        <span class="work-domain">generacijacafe.mk</span>
+                        <h3>Generacija Cafe</h3>
+                        <p data-translate="work.generacija">Built the cafe site: menu, hours, and location.</p>
+                    </div>
+                </a>
+                <a class="work-card" href="https://blisslounge.bar" target="_blank" rel="noopener noreferrer">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/bliss.webp') }}" alt="Bliss Lounge homepage" width="1280" height="727">
+                    <div class="work-body">
+                        <span class="work-domain">blisslounge.bar</span>
+                        <h3>Bliss Lounge</h3>
+                        <p data-translate="work.bliss">Built the menu and venue site for the lounge.</p>
+                    </div>
+                </a>
+                <a class="work-card" href="https://mojastrumica.app" target="_blank" rel="noopener noreferrer">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/moja.webp') }}" alt="Moja Strumica homepage" width="1280" height="727">
+                    <div class="work-body">
+                        <span class="work-domain">mojastrumica.app</span>
+                        <h3>Moja Strumica</h3>
+                        <p data-translate="work.moja">Designed and shipped the pre-launch site for the city app.</p>
+                    </div>
+                </a>
+                <a class="work-card" href="https://growhub.it.com" target="_blank" rel="noopener noreferrer">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/growhub.webp') }}" alt="GrowHub homepage" width="1280" height="727">
+                    <div class="work-body">
+                        <span class="work-domain">growhub.it.com</span>
+                        <h3>GrowHub</h3>
+                        <p data-translate="work.growhub">Designed and shipped the product site for the growing system.</p>
+                    </div>
+                </a>
+                <a class="work-card" href="https://aegissre.duckdns.org" target="_blank" rel="noopener noreferrer">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/aegis.webp') }}" alt="AegisSRE homepage" width="1280" height="727">
+                    <div class="work-body">
+                        <span class="work-domain">aegissre.duckdns.org</span>
+                        <h3>AegisSRE</h3>
+                        <p data-translate="work.aegis">Designed and shipped the product site for the incident workflow.</p>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -151,73 +166,34 @@
                             <path d="M3 9h18M9 21V9"/>
                         </svg>
                     </div>
-                    <h3 data-translate="services.design.title">Design</h3>
-                    <p data-translate="services.design.desc">UI/UX design, brand identity, and design systems that create lasting impressions and seamless experiences.</p>
+                    <h3 data-translate="services.web.title">Websites and apps</h3>
+                    <p data-translate="services.web.desc">Design and build the website or the app. The domain, the hosting, and keeping it online stay with Estada.</p>
                     <ul class="service-tags">
-                        <li data-translate="serviceTag.uiux">UI/UX</li>
-                        <li data-translate="serviceTag.branding">Branding</li>
-                        <li data-translate="serviceTag.prototyping">Prototyping</li>
+                        <li data-translate="serviceTag.websites">Websites</li>
+                        <li data-translate="serviceTag.apps">Apps</li>
+                        <li data-translate="serviceTag.domains">Domains</li>
+                        <li data-translate="serviceTag.hosting">Hosting</li>
                     </ul>
                 </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <polyline points="16,18 22,12 16,6"/>
-                            <polyline points="8,6 2,12 8,18"/>
-                        </svg>
+                <article class="service-card service-reel">
+                    <div class="service-copy">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="6" width="14" height="12" rx="2"/>
+                                <path d="M16 10l6-3v10l-6-3z"/>
+                            </svg>
+                        </div>
+                        <h3 data-translate="services.video.title">Video</h3>
+                        <p data-translate="services.video.desc">Filming and editing for social media, and for the pages Estada ships. This reel is one of those cuts.</p>
+                        <ul class="service-tags">
+                            <li data-translate="serviceTag.filming">Filming</li>
+                            <li data-translate="serviceTag.editing">Editing</li>
+                            <li data-translate="serviceTag.social">Social</li>
+                        </ul>
                     </div>
-                    <h3 data-translate="services.development.title">Development</h3>
-                    <p data-translate="services.development.desc">Fullstack engineering with modern frameworks. We build fast, scalable applications that grow with you.</p>
-                    <ul class="service-tags">
-                        <li data-translate="serviceTag.react">React</li>
-                        <li data-translate="serviceTag.python">Python</li>
-                        <li data-translate="serviceTag.apis">APIs</li>
-                    </ul>
-                </article>
-                <article class="service-card service-card-security">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            <path d="M9 12l2 2 4-4"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="services.security.title">Security</h3>
-                    <p data-translate="services.security.desc">Enterprise-grade protection with our guarantee: if your site gets breached, we take full responsibility and cover damages.</p>
-                    <ul class="service-tags">
-                        <li data-translate="serviceTag.penetration">Penetration Testing</li>
-                        <li data-translate="serviceTag.monitoring">Monitoring</li>
-                        <li data-translate="serviceTag.guaranteed">Guaranteed</li>
-                    </ul>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="services.hosting.title">Hosting & DevOps</h3>
-                    <p data-translate="services.hosting.desc">Secure cloud infrastructure, CI/CD pipelines, and managed hosting with 24/7 threat monitoring built in.</p>
-                    <ul class="service-tags">
-                        <li data-translate="serviceTag.aws">AWS</li>
-                        <li data-translate="serviceTag.docker">Docker</li>
-                        <li data-translate="serviceTag.uptime">99.9% Uptime</li>
-                    </ul>
-                </article>
-                <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                        </svg>
-                    </div>
-                    <h3 data-translate="services.marketing.title">Marketing</h3>
-                    <p data-translate="services.marketing.desc">Data-driven growth strategies, SEO, and digital campaigns that turn visitors into loyal customers.</p>
-                    <ul class="service-tags">
-                        <li data-translate="serviceTag.seo">SEO</li>
-                        <li data-translate="serviceTag.analytics">Analytics</li>
-                        <li data-translate="serviceTag.campaigns">Campaigns</li>
-                    </ul>
+                    <video class="service-reel-video" controls playsinline muted loop preload="metadata" poster="{{ url_for('static', filename='video/reel.webp') }}">
+                        <source src="{{ url_for('static', filename='video/reel.mp4') }}" type="video/mp4">
+                    </video>
                 </article>
             </div>
         </section>
@@ -225,23 +201,9 @@
         <section id="about" class="about">
             <div class="about-content">
                 <p class="section-tag" data-translate="about.tag">About Estada</p>
-                <h2 class="about-title"><span data-translate="about.title1">We're the</span> <em data-translate="about.title2">technical backbone</em> <span data-translate="about.title3">for ambitious brands.</span></h2>
-                <p class="about-text" data-translate="about.text1">Estada is a tech logistics firm built for the modern digital landscape. We combine strategic thinking with technical execution to deliver end-to-end solutions—from initial concept through deployment and beyond.</p>
-                <p class="about-text" data-translate="about.text2">Our approach is simple: understand deeply, build carefully, and scale intelligently. Whether you're launching a startup or transforming an enterprise, we're here to handle the complexity so you can focus on what matters.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label" data-translate="about.stats.projects">Projects Delivered</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label" data-translate="about.stats.uptime">Uptime SLA</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">24/7</span>
-                        <span class="stat-label" data-translate="about.stats.support">Support</span>
-                    </div>
-                </div>
+                <h2 class="about-title"><span data-translate="about.title1">The practice</span> <em data-translate="about.title2">behind</em> <span data-translate="about.title3">the sites above.</span></h2>
+                <p class="about-text" data-translate="about.text1">Estada is Andrej Trendov's studio for websites and products. Design, development, and hosting stay with the person who builds them.</p>
+                <p class="about-text" data-translate="about.text2">The grid above is the proof: sites shipped and kept online by the person who built them.</p>
             </div>
             <div class="about-visual">
                 <div class="float-card card-1">
@@ -259,31 +221,43 @@
             </div>
         </section>
 
+        <section class="founder">
+            <div class="founder-layout">
+                <div class="founder-content">
+                    <p class="section-tag" data-translate="founder.tag">Behind Estada</p>
+                    <h2 class="founder-title"><span data-translate="founder.title1">Founded by</span> <em>Andrej Trendov</em></h2>
+                    <p class="founder-text" data-translate="founder.text">Andrej is a full-stack developer and designer who started building websites at 10. He works in Python, Flask, FastAPI, and React, and also builds electronics with Arduino and ESP32. He won a national hackathon, holds a full scholarship to FINKI in North Macedonia, and placed first in the national Kengur competition.</p>
+                    <a href="https://trendov.dev" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-translate="founder.link">More at trendov.dev</a>
+                </div>
+                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204">
+            </div>
+        </section>
+
         <section class="process">
             <div class="section-header">
                 <p class="section-tag" data-translate="process.tag">How We Work</p>
-                <h2 class="section-title" data-translate="process.title">Our Process</h2>
+                <h2 class="section-title" data-translate="process.title">How a site gets made</h2>
             </div>
             <div class="process-steps">
                 <div class="process-step">
                     <span class="step-number">01</span>
-                    <h3 data-translate="process.discovery.title">Discovery</h3>
-                    <p data-translate="process.discovery.desc">We dive deep into your business, goals, and challenges to create a strategic roadmap.</p>
+                    <h3 data-translate="process.discovery.title">Talk</h3>
+                    <p data-translate="process.discovery.desc">You describe the venue or the product. Andrej writes back with what the site needs to show.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">02</span>
                     <h3 data-translate="process.design.title">Design</h3>
-                    <p data-translate="process.design.desc">Wireframes, prototypes, and polished designs that align with your brand and users.</p>
+                    <p data-translate="process.design.desc">The page, the menu or the product story, and the clips when the site needs video.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">03</span>
                     <h3 data-translate="process.build.title">Build</h3>
-                    <p data-translate="process.build.desc">Clean, tested code with continuous integration. We ship iteratively and transparently.</p>
+                    <p data-translate="process.build.desc">The site is built and put on a server Estada runs. You can open it before it is public.</p>
                 </div>
                 <div class="process-step">
                     <span class="step-number">04</span>
-                    <h3 data-translate="process.launch.title">Launch & Grow</h3>
-                    <p data-translate="process.launch.desc">Deployment, monitoring, and ongoing optimization. We're with you for the long haul.</p>
+                    <h3 data-translate="process.launch.title">Launch</h3>
+                    <p data-translate="process.launch.desc">The domain goes live. Later changes, a new menu item or a new clip, come to the same person.</p>
                 </div>
             </div>
         </section>
@@ -292,7 +266,7 @@
             <div class="contact-content">
                 <p class="section-tag" data-translate="contact.tag">Get in Touch</p>
                 <h2 class="contact-title"><span data-translate="contact.title1">Ready to build</span><br><span data-translate="contact.title2">something</span> <em data-translate="contact.title3">great</em><span data-translate="contact.title4">?</span></h2>
-                <p class="contact-desc" data-translate="contact.desc">Tell us about your project and we'll get back to you within 24 hours.</p>
+                <p class="contact-desc" data-translate="contact.desc">Andrej reads every message.</p>
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-row">
                         <div class="form-group">
@@ -308,11 +282,9 @@
                         <label for="service" data-translate="contact.service">What do you need?</label>
                         <select id="service" name="service">
                             <option value="" data-translate="contact.servicePlaceholder">Select a service</option>
-                            <option value="design" data-translate="contact.serviceDesign">Design</option>
-                            <option value="development" data-translate="contact.serviceDevelopment">Development</option>
-                            <option value="hosting" data-translate="contact.serviceHosting">Hosting & DevOps</option>
-                            <option value="marketing" data-translate="contact.serviceMarketing">Marketing</option>
-                            <option value="full" data-translate="contact.serviceFull">Full Package</option>
+                            <option value="website" data-translate="contact.serviceWeb">Website or app</option>
+                            <option value="video" data-translate="contact.serviceVideo">Video</option>
+                            <option value="both" data-translate="contact.serviceBoth">Website and video</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -327,13 +299,11 @@
             <div class="contact-info">
                 <div class="info-block">
                     <h4 data-translate="contact.emailLabel">Email</h4>
-                    <a href="mailto:andrejt@estada.dev">andrejt@estada.dev</a> <br>
-                    <a href="mailto:krstem@estada.dev">krstem@estada.dev</a> <br>
-                    <a href="mailto:filipm@estada.dev">filipm@estada.dev</a>
+                    <a href="mailto:atrendov1@gmail.com">atrendov1@gmail.com</a>
                 </div>
                 <div class="info-block">
                     <h4 data-translate="contact.locationLabel">Location</h4>
-                    <p data-translate="contact.location">Remote-first, globally distributed</p>
+                    <p data-translate="contact.location">Strumica, North Macedonia</p>
                 </div>
                 <div class="info-block">
                     <h4 data-translate="contact.socialLabel">Social</h4>
@@ -371,7 +341,7 @@
                         <path class="logo-fill" d="M133.12,20.2h-5.62L136.06.25h6.75l8.54,19.95h-5.62l-6.21-15.39h-.19l-6.22,15.39h.01ZM132.77,12.36h13.26v3.29h-13.26v-3.29Z"/>
                     </svg>
                 </a>
-                <p data-translate="footer.tagline">Tech logistics for the modern web.</p>
+                <p data-translate="footer.tagline">Websites and products, kept online.</p>
             </div>
             <p class="footer-copy" data-translate="footer.copyright">© 2026 Estada. All rights reserved.</p>
         </div>

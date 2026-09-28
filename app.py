@@ -84,9 +84,6 @@ TEST_EMAIL = os.getenv('TEST_EMAIL', 'atrendov1@gmail.com')  # Your Resend accou
 # For testing, use real email addresses (e.g., Gmail) that definitely work
 RECIPIENT_EMAILS = [
     'atrendov1@gmail.com',
-    'andrejt@estada.dev',
-    'krstem@estada.dev',
-    'filipm@estada.dev'
 ]
 
 # Once email forwarding is set up, uncomment these and comment out the Gmail above:
