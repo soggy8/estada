@@ -3,8 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us — Estada</title>
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
+    {% set title_key = 'meta.about.title' %}
+    {% set page_title = 'За Estada — Андреј Трендов, Струмица' %}
+    {% set page_description = 'Estada ја води Андреј Трендов од Струмица. Дизајнот, изградбата, хостирањето и видеото остануваат кај еден човек, од првата скица до живиот сајт.' %}
+    {% set page_path = '/about' %}
+    {% include '_meta.html' %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "url": "{{ site_url }}/about",
+        "name": "{{ page_title }}",
+        "inLanguage": "mk",
+        "isPartOf": {"@id": "{{ site_url }}/#website"},
+        "about": {"@id": "{{ site_url }}/#business"},
+        "mainEntity": {
+            "@type": "Person",
+            "@id": "{{ site_url }}/#founder",
+            "name": "Andrej Trendov",
+            "url": "https://trendov.dev",
+            "jobTitle": "Founder",
+            "worksFor": {"@id": "{{ site_url }}/#business"},
+            "image": "{{ site_url }}{{ url_for('static', filename='img/andrej.webp') }}",
+            "knowsAbout": ["Web development", "Web design", "Python", "Flask", "FastAPI", "React", "Video editing"]
+        }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -208,7 +232,7 @@
                     <p class="founder-text" data-translate="founder.text">Andrej is a full-stack developer and designer who started building websites at 10. He works in Python, Flask, FastAPI, and React, and also builds electronics with Arduino and ESP32. He won a national hackathon, holds a full scholarship to FINKI in North Macedonia, and placed first in the national Kengur competition.</p>
                     <a href="https://trendov.dev" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-translate="founder.link">More at trendov.dev</a>
                 </div>
-                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204">
+                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204" loading="lazy" decoding="async">
             </div>
         </section>
 

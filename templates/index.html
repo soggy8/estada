@@ -3,8 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estada — Websites and products</title>
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
+    {% set title_key = 'meta.home.title' %}
+    {% set page_title = 'Estada — Изработка на веб-сајтови и апликации, Струмица' %}
+    {% set page_description = 'Estada дизајнира, гради и хостира веб-сајтови и апликации од Струмица, со домен и хостирање вклучени, и снима видео за социјални мрежи. Погледнете ги живите сајтови.' %}
+    {% set page_path = '/' %}
+    {% include '_meta.html' %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "{{ site_url }}/#website",
+                "url": "{{ site_url }}/",
+                "name": "Estada",
+                "inLanguage": ["mk", "en"],
+                "publisher": {"@id": "{{ site_url }}/#business"}
+            },
+            {
+                "@type": "ProfessionalService",
+                "@id": "{{ site_url }}/#business",
+                "name": "Estada",
+                "url": "{{ site_url }}/",
+                "description": "Web studio in Strumica that designs, builds, and hosts websites and apps, and films and edits video for social media.",
+                "logo": "{{ site_url }}{{ url_for('static', filename='img/apple-touch-icon.png') }}",
+                "image": "{{ site_url }}{{ url_for('static', filename='img/og.png') }}",
+                "email": "atrendov1@gmail.com",
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": "Strumica",
+                    "addressCountry": "MK"
+                },
+                "areaServed": ["Strumica", "North Macedonia"],
+                "knowsLanguage": ["mk", "en"],
+                "founder": {"@id": "{{ site_url }}/#founder"},
+                "sameAs": [
+                    "https://www.instagram.com/estada.dev/",
+                    "https://www.facebook.com/share/1DaMzXHXt5/"
+                ],
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Websites and apps",
+                                "description": "Design and build of the website or app, with the domain, hosting, and keeping it online."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Video",
+                                "description": "Filming and editing short video for social media."
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "@type": "Person",
+                "@id": "{{ site_url }}/#founder",
+                "name": "Andrej Trendov",
+                "url": "https://trendov.dev",
+                "jobTitle": "Founder",
+                "worksFor": {"@id": "{{ site_url }}/#business"},
+                "image": "{{ site_url }}{{ url_for('static', filename='img/andrej.webp') }}"
+            }
+        ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -111,7 +182,7 @@
             </div>
             <div class="work-grid">
                 <a class="work-card" href="https://generacijacafe.mk" target="_blank" rel="noopener noreferrer">
-                    <img class="work-shot" src="{{ url_for('static', filename='img/work/generacija.webp') }}" alt="Generacija Cafe homepage" width="1280" height="727">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/generacija.webp') }}" alt="Generacija Cafe homepage" width="1280" height="727" loading="lazy" decoding="async">
                     <div class="work-body">
                         <span class="work-domain">generacijacafe.mk</span>
                         <h3>Generacija Cafe</h3>
@@ -119,7 +190,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://blisslounge.bar" target="_blank" rel="noopener noreferrer">
-                    <img class="work-shot" src="{{ url_for('static', filename='img/work/bliss.webp') }}" alt="Bliss Lounge homepage" width="1280" height="727">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/bliss.webp') }}" alt="Bliss Lounge homepage" width="1280" height="727" loading="lazy" decoding="async">
                     <div class="work-body">
                         <span class="work-domain">blisslounge.bar</span>
                         <h3>Bliss Lounge</h3>
@@ -127,7 +198,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://mojastrumica.app" target="_blank" rel="noopener noreferrer">
-                    <img class="work-shot" src="{{ url_for('static', filename='img/work/moja.webp') }}" alt="Moja Strumica homepage" width="1280" height="727">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/moja.webp') }}" alt="Moja Strumica homepage" width="1280" height="727" loading="lazy" decoding="async">
                     <div class="work-body">
                         <span class="work-domain">mojastrumica.app</span>
                         <h3>Moja Strumica</h3>
@@ -135,7 +206,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://growhub.it.com" target="_blank" rel="noopener noreferrer">
-                    <img class="work-shot" src="{{ url_for('static', filename='img/work/growhub.webp') }}" alt="GrowHub homepage" width="1280" height="727">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/growhub.webp') }}" alt="GrowHub homepage" width="1280" height="727" loading="lazy" decoding="async">
                     <div class="work-body">
                         <span class="work-domain">growhub.it.com</span>
                         <h3>GrowHub</h3>
@@ -143,7 +214,7 @@
                     </div>
                 </a>
                 <a class="work-card" href="https://aegissre.duckdns.org" target="_blank" rel="noopener noreferrer">
-                    <img class="work-shot" src="{{ url_for('static', filename='img/work/aegis.webp') }}" alt="AegisSRE homepage" width="1280" height="727">
+                    <img class="work-shot" src="{{ url_for('static', filename='img/work/aegis.webp') }}" alt="AegisSRE homepage" width="1280" height="727" loading="lazy" decoding="async">
                     <div class="work-body">
                         <span class="work-domain">aegissre.duckdns.org</span>
                         <h3>AegisSRE</h3>
@@ -229,7 +300,7 @@
                     <p class="founder-text" data-translate="founder.text">Andrej is a full-stack developer and designer who started building websites at 10. He works in Python, Flask, FastAPI, and React, and also builds electronics with Arduino and ESP32. He won a national hackathon, holds a full scholarship to FINKI in North Macedonia, and placed first in the national Kengur competition.</p>
                     <a href="https://trendov.dev" class="btn btn-ghost" target="_blank" rel="noopener noreferrer" data-translate="founder.link">More at trendov.dev</a>
                 </div>
-                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204">
+                <img class="founder-photo" src="{{ url_for('static', filename='img/andrej.webp') }}" alt="Andrej Trendov" width="800" height="1204" loading="lazy" decoding="async">
             </div>
         </section>
 

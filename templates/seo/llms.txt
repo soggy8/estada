@@ -1,0 +1,35 @@
+# Estada
+
+> Estada is a web studio in Strumica, North Macedonia, run by Andrej Trendov. It designs and builds websites and apps, registers the domain, hosts the site on servers it runs itself, and keeps it online after launch. It also films and edits short video for social media. The site is in Macedonian by default, with an English version.
+
+Estada works with local venues (cafes, bars, lounges) and with product teams that need a site that explains what they make. One person handles the project from the first conversation through launch and later changes.
+
+## Pages
+
+- [Home]({{ site_url }}/): Live work, the two services, how a site gets made, and the contact form
+- [About]({{ site_url }}/about): Who runs Estada, what it values, and why the work stays with one person
+- [Technologies]({{ site_url }}/technologies): The tools used for the shipped sites and why each one was chosen
+
+## Services
+
+- Websites and apps: Design and build of the website or app, plus the domain, hosting, and keeping it online
+- Video: Filming and editing short video for social media and for the pages Estada ships
+
+## Live work
+
+- [Generacija Cafe](https://generacijacafe.mk): Cafe site in Strumica with the menu, hours, and location
+- [Bliss Lounge](https://blisslounge.bar): Menu and venue site for a lounge bar in Strumica
+- [Moja Strumica](https://mojastrumica.app): Pre-launch site for a city app for Strumica
+- [GrowHub](https://growhub.it.com): Product site for a smart growing system for homes and greenhouses
+- [AegisSRE](https://aegissre.duckdns.org): Product site for an incident workflow that diagnoses a failure and drafts the rollback
+
+## Founder
+
+- [Andrej Trendov](https://trendov.dev): Full-stack developer and designer working in Python, Flask, FastAPI, and React, who also builds electronics with Arduino and ESP32
+
+## Contact
+
+- Email: atrendov1@gmail.com
+- Location: Strumica, North Macedonia
+- [Contact form]({{ site_url }}/#contact)
+- [Instagram](https://www.instagram.com/estada.dev/)

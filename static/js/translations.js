@@ -1,6 +1,11 @@
 // Translation data for English and Macedonian
 const translations = {
     en: {
+        // Page titles
+        'meta.home.title': 'Estada — Websites and apps from Strumica',
+        'meta.about.title': 'About Estada — Andrej Trendov, Strumica',
+        'meta.tech.title': 'Technologies — Estada',
+
         // Navigation
         'nav.technologies': 'Technologies',
         'nav.about': 'About',
@@ -186,6 +191,11 @@ const translations = {
         'techPage.infrastructure': 'Infrastructure'
     },
     mk: {
+        // Page titles
+        'meta.home.title': 'Estada — Изработка на веб-сајтови и апликации, Струмица',
+        'meta.about.title': 'За Estada — Андреј Трендов, Струмица',
+        'meta.tech.title': 'Технологии — Estada',
+
         // Navigation
         'nav.technologies': 'Технологии',
         'nav.about': 'За нас',

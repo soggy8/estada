@@ -22,7 +22,7 @@ IMPORTANT:
 Emails include user's email in reply_to for direct replies.
 """
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, make_response
 from flask_wtf.csrf import CSRFProtect, generate_csrf, validate_csrf
 from functools import wraps
 from datetime import datetime, timedelta
@@ -46,6 +46,9 @@ app.logger.setLevel(logging.INFO)
 # Production settings
 app.config['DEBUG'] = os.getenv('FLASK_DEBUG', 'False').lower() == 'true'
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', os.urandom(24).hex())
+
+# Public origin used in canonical links, sitemap, and structured data
+SITE_URL = os.getenv('SITE_URL', 'https://estada.dev').rstrip('/')
 
 # CSRF Protection
 csrf = CSRFProtect(app)
@@ -158,6 +161,27 @@ def about():
 def technologies():
     """Serve the technologies.html page"""
     return render_template('technologies.html')
+
+@app.context_processor
+def inject_site_url():
+    return {'site_url': SITE_URL}
+
+def text_response(template, mimetype):
+    response = make_response(render_template(template))
+    response.mimetype = mimetype
+    return response
+
+@app.route('/robots.txt')
+def robots_txt():
+    return text_response('seo/robots.txt', 'text/plain')
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    return text_response('seo/sitemap.xml', 'application/xml')
+
+@app.route('/llms.txt')
+def llms_txt():
+    return text_response('seo/llms.txt', 'text/plain')
 
 @app.route('/api/csrf-token')
 def get_csrf_token():

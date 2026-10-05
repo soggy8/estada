@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technologies — Estada</title>
-    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
+    {% set title_key = 'meta.tech.title' %}
+    {% set page_title = 'Технологии — Estada' %}
+    {% set page_description = 'Алатките зад сајтовите на Estada: Python и Flask, HTML, CSS и JavaScript, React за апликации и сервери што ги водиме сами. Зошто е избран секој од нив.' %}
+    {% set page_path = '/technologies' %}
+    {% include '_meta.html' %}
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -76,7 +79,7 @@
 
 <!-- TECH STACK -->
 <section class="tech-stack">
-    <h1 class="section-title" align="center" data-translate="techPage.stackTitle">Tech Stack</h1>
+    <h2 class="section-title" align="center" data-translate="techPage.stackTitle">Tech Stack</h2>
 
     <div class="tech-cards">
         <!-- Backend -->
@@ -134,37 +137,37 @@
 <section class="tech-slider">
     <div class="slider-track">
         <!-- ADD YOUR LOGOS HERE -->
-        <img src="/static/img/tech/python.svg">
-        <img src="/static/img/tech/flask.svg">
-        <img src="/static/img/tech/fastapi.svg">
-        <img src="/static/img/tech/mysql.svg">
-        <img src="/static/img/tech/react.svg">
-        <img src="/static/img/tech/threejs.svg">
-        <img src="/static/img/tech/aws.svg">
-        <img src="/static/img/tech/CSS3.svg">
-        <img src="/static/img/tech/HTML5.svg">
-        <img src="/static/img/tech/JavaScript.svg">
+        <img src="/static/img/tech/python.svg" alt="Python" loading="lazy">
+        <img src="/static/img/tech/flask.svg" alt="Flask" loading="lazy">
+        <img src="/static/img/tech/fastapi.svg" alt="FastAPI" loading="lazy">
+        <img src="/static/img/tech/mysql.svg" alt="MySQL" loading="lazy">
+        <img src="/static/img/tech/react.svg" alt="React" loading="lazy">
+        <img src="/static/img/tech/threejs.svg" alt="Three.js" loading="lazy">
+        <img src="/static/img/tech/aws.svg" alt="AWS" loading="lazy">
+        <img src="/static/img/tech/CSS3.svg" alt="CSS" loading="lazy">
+        <img src="/static/img/tech/HTML5.svg" alt="HTML" loading="lazy">
+        <img src="/static/img/tech/JavaScript.svg" alt="JavaScript" loading="lazy">
         
         <!-- duplicate for seamless loop -->
-        <img src="/static/img/tech/python.svg">
-        <img src="/static/img/tech/flask.svg">
-        <img src="/static/img/tech/fastapi.svg">
-        <img src="/static/img/tech/mysql.svg">
-        <img src="/static/img/tech/react.svg">
-        <img src="/static/img/tech/threejs.svg">
-        <img src="/static/img/tech/aws.svg">
-        <img src="/static/img/tech/CSS3.svg">
-        <img src="/static/img/tech/HTML5.svg">
-        <img src="/static/img/tech/JavaScript.svg">
+        <img src="/static/img/tech/python.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/flask.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/fastapi.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/mysql.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/react.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/threejs.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/aws.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/CSS3.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/HTML5.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/JavaScript.svg" alt="" aria-hidden="true" loading="lazy">
 
         <!-- duplicate for seamless loop -->
-        <img src="/static/img/tech/python.svg">
-        <img src="/static/img/tech/flask.svg">
-        <img src="/static/img/tech/fastapi.svg">
-        <img src="/static/img/tech/mysql.svg">
-        <img src="/static/img/tech/react.svg">
-        <img src="/static/img/tech/threejs.svg">
-        <img src="/static/img/tech/aws.svg">
+        <img src="/static/img/tech/python.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/flask.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/fastapi.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/mysql.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/react.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/threejs.svg" alt="" aria-hidden="true" loading="lazy">
+        <img src="/static/img/tech/aws.svg" alt="" aria-hidden="true" loading="lazy">
     </div>
 </section>
 
