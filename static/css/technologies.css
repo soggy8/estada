@@ -24,48 +24,6 @@
     opacity: 0.85;
 }
 
-/* Slider */
-.tech-slider {
-    overflow: hidden;
-    padding: 4rem 0;
-    border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-.slider-track {
-    display: flex;
-    gap: 5rem;
-    animation: slide 20s linear infinite;
-    will-change: transform;
-}
-
-@media (max-width: 768px) {
-    .slider-track {
-        animation: slide 12s linear infinite;
-        will-change: transform;
-    }
-
-    .slider-track img {
-        height: 72px;
-    }
-}
-
-/* Make only Flask and Three.js logos white */
-.tech-slider img[src*="/flask.svg"],
-.tech-slider img[src*="/threejs.svg"] {
-    filter: brightness(0) invert(1);
-}
-
-.slider-track img {
-    height: 110px;
-    opacity: 0.8;
-    filter: none;
-}
-
-@keyframes slide {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
-
 /* TECH STACK CARDS */
 .tech-cards {
     display: flex;
@@ -76,28 +34,27 @@
 }
 
 .tech-card {
-    background-color: rgba(12, 26, 46, 0.7); /* dark blue translucent */
-    backdrop-filter: blur(10px);
-    border-radius: 12px;
+    background: var(--card-surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
     padding: 24px 20px;
     width: 280px;
     min-height: 200px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    color: #f0f4f8;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    color: var(--text-primary);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tech-card h3 {
     margin-bottom: 10px;
     font-size: 1.2rem;
-    color: #3b82f6; /* accent blue */
+    color: var(--accent-text);
 }
 
 .tech-why {
-    color: #94a3b8;
+    color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 14px;
@@ -117,14 +74,15 @@
 /* Hover effect */
 .tech-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    box-shadow: var(--shadow-card);
 }
 
 /* Section title */
 .section-title {
     font-size: 2rem;
-    color: #f0f4f8;
+    color: var(--text-primary);
     margin-bottom: 20px;
+    text-align: center;
 }
 
 @media (max-width: 768px) {

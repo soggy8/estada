@@ -37,7 +37,7 @@
 }
 
 .about-story-text strong {
-    color: var(--accent-light);
+    color: var(--accent-text);
     font-weight: 600;
 }
 
@@ -48,7 +48,7 @@
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: clamp(24px, 4vw, 32px);
     margin-top: clamp(40px, 6vw, 60px);
 }
@@ -56,7 +56,7 @@
 .value-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: clamp(24px, 3vw, 32px);
     transition: all var(--transition-base);
 }
@@ -64,19 +64,19 @@
 .value-card:hover {
     border-color: var(--border-blue);
     transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(0, 108, 196, 0.1);
+    box-shadow: var(--shadow-card);
 }
 
 .value-icon {
     width: 48px;
     height: 48px;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 10px;
+    background: var(--accent-soft);
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--accent-light);
+    color: var(--accent-text);
 }
 
 .value-icon svg {
@@ -116,7 +116,7 @@
 .stat-item {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: 16px;
     padding: 24px 32px;
     text-align: center;
     min-width: 180px;
@@ -132,7 +132,7 @@
     font-family: var(--font-display);
     font-size: clamp(28px, 4vw, 36px);
     font-weight: 700;
-    color: var(--accent-light);
+    color: var(--accent-text);
     margin-bottom: 4px;
 }
 
@@ -148,11 +148,6 @@
     line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: clamp(24px, 3vw, 32px);
-}
-
-.about-why-text em {
-    color: var(--accent-light);
-    font-style: italic;
 }
 
 .about-why-list {
@@ -174,7 +169,7 @@
 .about-why-list li svg {
     width: 18px;
     height: 18px;
-    color: var(--accent-light);
+    color: var(--accent-text);
     flex-shrink: 0;
     margin-top: 3px;
 }

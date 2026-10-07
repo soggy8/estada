@@ -1,0 +1,4 @@
+{#- Phosphor Icons (MIT), regular weight, inlined from templates/icons/ #}
+{% macro icon(name, class='icon') -%}
+<span class="{{ class }}" aria-hidden="true">{% include 'icons/' ~ name ~ '.svg' %}</span>
+{%- endmacro %}

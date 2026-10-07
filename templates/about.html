@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% from '_icons.html' import icon %}
 
 {% block styles %}
     <link rel="stylesheet" href="{{ static_url('css/about.css') }}">
@@ -9,34 +10,19 @@
             <div class="hero-content">
                 <p class="hero-tag">{{ t('aboutPage.heroTag') }}</p>
                 <h1 class="hero-title">
-                    <span class="line">{{ t('aboutPage.heroTitle1') }}</span>
-                    <span class="line"><em>{{ t('aboutPage.heroTitle2') }}</em> {{ t('aboutPage.heroTitle3') }}</span>
-                    <span class="line">{{ t('aboutPage.heroTitle4') }}</span>
+                    <span class="line">{{ t('aboutPage.heroTitle1') }} <em>{{ t('aboutPage.heroTitle2') }}</em></span>
+                    <span class="line">{{ t('aboutPage.heroTitle3') }} {{ t('aboutPage.heroTitle4') }}</span>
                 </h1>
                 <p class="hero-desc">{{ t('aboutPage.heroDesc') }}</p>
             </div>
-            <div class="hero-visual">
-                <div class="hex-grid">
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                </div>
-                <div class="core-container">
-                    <div class="core"></div>
-                    <div class="core-ring"></div>
-                    <div class="core-ring"></div>
-                </div>
+            <div class="hero-visual hero-portrait">
+                <img src="{{ static_url('img/andrej.webp') }}" alt="{{ t('founder.name') }}" width="800" height="1204" fetchpriority="high">
             </div>
         </section>
 
         <section class="about-section">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">{{ t('aboutPage.story.tag') }}</p>
                     <h2 class="section-title">{{ t('aboutPage.story.title') }}</h2>
                 </div>
                 <div class="about-story-grid">
@@ -52,46 +38,26 @@
         <section class="about-section about-values">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">{{ t('aboutPage.values.tag') }}</p>
                     <h2 class="section-title">{{ t('aboutPage.values.title') }}</h2>
                 </div>
                 <div class="values-grid">
                     <article class="value-card">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                            </svg>
-                        </div>
+                        <div class="value-icon">{{ icon('shield-check') }}</div>
                         <h3>{{ t('aboutPage.values.security.title') }}</h3>
                         <p>{{ t('aboutPage.values.security.desc') }}</p>
                     </article>
                     <article class="value-card">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                            </svg>
-                        </div>
+                        <div class="value-icon">{{ icon('lightning') }}</div>
                         <h3>{{ t('aboutPage.values.speed.title') }}</h3>
                         <p>{{ t('aboutPage.values.speed.desc') }}</p>
                     </article>
                     <article class="value-card">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
+                        <div class="value-icon">{{ icon('handshake') }}</div>
                         <h3>{{ t('aboutPage.values.partnership.title') }}</h3>
                         <p>{{ t('aboutPage.values.partnership.desc') }}</p>
                     </article>
                     <article class="value-card">
-                        <div class="value-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                            </svg>
-                        </div>
+                        <div class="value-icon">{{ icon('eye') }}</div>
                         <h3>{{ t('aboutPage.values.transparency.title') }}</h3>
                         <p>{{ t('aboutPage.values.transparency.desc') }}</p>
                     </article>
@@ -102,7 +68,6 @@
         <section class="about-section about-why">
             <div class="about-container">
                 <div class="section-header">
-                    <p class="section-tag">{{ t('aboutPage.why.tag') }}</p>
                     <h2 class="section-title">{{ t('aboutPage.why.title') }}</h2>
                 </div>
                 <div class="about-why-content">
@@ -121,9 +86,7 @@
                         <ul class="about-why-list">
                             {%- for n in range(1, 6) %}
                             <li>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
+                                {{ icon('check') }}
                                 <span>{{ t('aboutPage.why.list' ~ n) }}</span>
                             </li>
                             {%- endfor %}
@@ -133,7 +96,7 @@
             </div>
         </section>
 
-        {% include '_founder.html' %}
+        {% with hide_founder_photo=true %}{% include '_founder.html' %}{% endwith %}
 
         <section class="about-section about-cta">
             <div class="about-container">
@@ -141,7 +104,7 @@
                     <h2>{{ t('aboutPage.cta.title') }}</h2>
                     <p>{{ t('aboutPage.cta.desc') }}</p>
                     <div class="about-cta-actions">
-                        <a href="{{ page_url('index') }}#contact" class="btn btn-primary">{{ t('aboutPage.cta.start') }}</a>
+                        <a href="{{ page_url('index') }}#contact" class="btn btn-primary">{{ t('cta.contact') }}</a>
                         <a href="{{ page_url('technologies') }}" class="btn btn-ghost">{{ t('aboutPage.cta.viewTech') }}</a>
                     </div>
                 </div>

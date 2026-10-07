@@ -15,11 +15,11 @@ STRINGS = {
         # Page metadata
         'meta.index.title': 'Изработка на веб-сајтови и апликации во Струмица | Estada',
         'meta.index.description': 'Изработка на веб страници и апликации во Струмица: дизајн, домен и хостирање на едно место, плус видео за социјални мрежи. Погледнете ги живите сајтови.',
-        'meta.about.title': 'За Estada — Андреј Трендов, веб студио во Струмица',
+        'meta.about.title': 'За Estada: Андреј Трендов, веб студио во Струмица',
         'meta.about.description': 'Estada ја води Андреј Трендов од Струмица. Дизајнот, изработката, хостирањето и видеото остануваат кај еден човек, од првата скица до живиот сајт.',
-        'meta.technologies.title': 'Технологии — Estada',
+        'meta.technologies.title': 'Технологии | Estada',
         'meta.technologies.description': 'Алатките зад сајтовите на Estada: Python и Flask, HTML, CSS и JavaScript, React за апликации и сервери што ги водиме сами. Зошто е избран секој од нив.',
-        'meta.privacy.title': 'Политика за приватност — Estada',
+        'meta.privacy.title': 'Политика за приватност | Estada',
         'meta.privacy.description': 'Кои податоци ги собира формата за контакт на Estada, зошто, кој ги обработува и како да побарате да се избришат.',
         'meta.ogImageAlt': 'Estada: веб-сајтови и апликации од Струмица',
 
@@ -27,7 +27,7 @@ STRINGS = {
         'nav.home': 'Почетна',
         'nav.technologies': 'Технологии',
         'nav.about': 'За нас',
-        'nav.letsTalk': 'Контакт',
+        'cta.contact': 'Започнете проект',
         'nav.toggle': 'Отвори го менито',
         'nav.switchLang': 'Македонска верзија',
 
@@ -37,7 +37,6 @@ STRINGS = {
         'home.heroTitle2': 'веб-сајтови',
         'home.heroTitle3': 'во Струмица.',
         'home.heroDesc': 'Дизајнираме, изработуваме и хостираме веб страници и апликации, а потоа ги одржуваме онлајн. Сајтовите подолу се доказот.',
-        'home.startProject': 'Започнете проект',
         'home.exploreServices': 'Погледнете ги услугите',
 
         # Marquee
@@ -48,10 +47,10 @@ STRINGS = {
         'marquee.clientWork': 'Клиентски сајтови',
 
         # Selected work
-        'work.tag': 'Избрани проекти',
         'work.title': 'Веб страници што ги изработивме',
         'work.intro': 'Секоја веб страна подолу е жива. Отворете ја и пробајте ја на телефон.',
         'work.alt': 'Почетна страница на {name}',
+        'work.phoneAlt': 'Сајтот на {name} на мобилен телефон',
         'work.generacija': 'Го изработивме сајтот на кафе барот: мени, работно време и локација.',
         'work.bliss': 'Го изработивме менито и сајтот на лаунџ барот.',
         'work.moja': 'Го дизајниравме и го објавивме сајтот пред лансирањето на градската апликација.',
@@ -59,7 +58,6 @@ STRINGS = {
         'work.aegis': 'Го дизајниравме и го објавивме продукт-сајтот за текот на инциденти.',
 
         # Services
-        'services.tag': 'Наши услуги',
         'services.title': 'Изработка на веб страници и видео во Струмица',
         'services.web.title': 'Веб-сајтови и апликации',
         'services.web.desc': 'Дизајн и изработка на веб страница или апликација. Доменот, хостирањето и одржувањето онлајн остануваат кај Estada.',
@@ -74,13 +72,11 @@ STRINGS = {
         'serviceTag.social': 'Социјални мрежи',
 
         # Pricing (shown only when business.PACKAGES is filled in)
-        'pricing.tag': 'Цени',
         'pricing.title': 'Пакети за изработка на веб страница',
         'pricing.hosting': 'Хостирање и одржување',
         'pricing.note': 'Точната цена зависи од обемот на проектот. Пишете ни и ќе добиете понуда.',
 
         # About section on the home page
-        'about.tag': 'За Estada',
         'about.title1': 'Студиото',
         'about.title2': 'зад',
         'about.title3': 'сајтовите погоре.',
@@ -91,14 +87,12 @@ STRINGS = {
         'about.card.person': 'Еден човек од почеток до крај',
 
         # Founder
-        'founder.tag': 'Зад Estada',
         'founder.title1': 'Основана од',
         'founder.name': 'Андреј Трендов',
         'founder.text': 'Андреј е fullstack програмер и дизајнер кој почнал да гради веб-сајтови на 10 години. Работи со Python, Flask, FastAPI и React, а гради и електроника со Arduino и ESP32. Победник е на национален хакатон, има целосна стипендија на ФИНКИ и прво место на националниот натпревар Кенгур.',
         'founder.link': 'Повеќе на trendov.dev',
 
         # Process
-        'process.tag': 'Начин на работа',
         'process.title': 'Како се прави сајт',
         'process.talk.title': 'Разговор',
         'process.talk.desc': 'Го опишувате локалот или производот. Андреј одговара со тоа што сајтот треба да го покаже.',
@@ -110,11 +104,9 @@ STRINGS = {
         'process.launch.desc': 'Доменот оди во живо. Промените потоа, ново јадење во менито или нов клип, доаѓаат кај истиот човек.',
 
         # Testimonials (shown only when business.TESTIMONIALS is filled in)
-        'testimonials.tag': 'Клиенти',
         'testimonials.title': 'Што велат сопствениците',
 
         # FAQ
-        'faq.tag': 'Прашања',
         'faq.title': 'Често поставувани прашања',
         'faq.items': [
             ('Што е вклучено во изработката на веб-сајт?',
@@ -134,7 +126,6 @@ STRINGS = {
         ],
 
         # Contact
-        'contact.tag': 'Контакт',
         'contact.title1': 'Имате локал или производ',
         'contact.title2': 'на кој му треба',
         'contact.title3': 'сајт',
@@ -168,7 +159,6 @@ STRINGS = {
         'js.invalidEmail': 'Внесете валидна адреса за е-пошта.',
         'js.tokenMissing': 'Безбедносниот токен не е вчитан. Освежете ја страницата и обидете се повторно.',
         'js.network': 'Грешка во мрежата. Проверете ја врската и обидете се повторно.',
-        'js.close': 'Затвори',
         'js.error_generic': 'Пораката не е испратена. Обидете се повторно подоцна или пишете ни на е-пошта.',
         'js.error_csrf': 'Безбедносната проверка не успеа. Освежете ја страницата и обидете се повторно.',
         'js.error_missing_fields': 'Пополнете ги задолжителните полиња.',
@@ -188,13 +178,11 @@ STRINGS = {
         'aboutPage.heroTitle2': 'и хостирање',
         'aboutPage.heroTitle3': 'во',
         'aboutPage.heroTitle4': 'едно студио.',
-        'aboutPage.heroDesc': 'Estada ја основа Андреј Трендов, fullstack програмер и дизајнер. Доказот е жив: сајтови и производи изработени од концепт до хостирање.',
-        'aboutPage.story.tag': 'Нашата приказна',
+        'aboutPage.heroDesc': 'Estada ја основа Андреј Трендов, fullstack програмер и дизајнер. Секој сајт е изработен од концепт до хостирање.',
         'aboutPage.story.title': 'Еден човек, од првата скица до живиот сајт.',
         'aboutPage.story.text1': 'Estada е студиото на Андреј Трендов во Струмица. Проектот останува кај него: дизајнот, изработката, хостирањето и видеото кога на сајтот му треба нешто за објава.',
         'aboutPage.story.text2': 'Кафе бар добива мени, работно време и локација. Производ добива сајт што го објаснува и останува онлајн по лансирањето.',
         'aboutPage.story.text3': 'Петте живи сајтови се доказот: Generacija Cafe, Bliss Lounge, Моја Струмица, GrowHub и AegisSRE.',
-        'aboutPage.values.tag': 'За што се залагаме',
         'aboutPage.values.title': 'Нашите вредности',
         'aboutPage.values.security.title': 'Безбедност на прво место',
         'aboutPage.values.security.desc': 'Безбедноста е дел од изработката: внимателна имплементација, контрола на пристап и надзор. Не ветуваме покривање на секој пробив.',
@@ -204,7 +192,6 @@ STRINGS = {
         'aboutPage.values.partnership.desc': 'Сајтот не се предава и заборава. Промените, ново јадење во менито или нов клип, доаѓаат кај истиот човек што го изработи.',
         'aboutPage.values.transparency.title': 'Транспарентност',
         'aboutPage.values.transparency.desc': 'Јасна комуникација, реални рокови и цена договорена однапред.',
-        'aboutPage.why.tag': 'Зошто Estada',
         'aboutPage.why.title': 'Работата останува на едно место.',
         'aboutPage.why.stats.sites': 'Живи сајтови',
         'aboutPage.why.stats.person': 'Човек што ја чита поштата',
@@ -216,7 +203,6 @@ STRINGS = {
         'aboutPage.why.list5': 'Еден човек за разговор, од првиот повик до лансирањето',
         'aboutPage.cta.title': 'Имате локал или производ на кој му треба сајт?',
         'aboutPage.cta.desc': 'Пишете му на Андреј. Ќе одговори со тоа што сајтот треба да го покаже.',
-        'aboutPage.cta.start': 'Започнете проект',
         'aboutPage.cta.viewTech': 'Преглед на технологии',
 
         # Technologies page
@@ -225,7 +211,7 @@ STRINGS = {
         'techPage.heroTitle2': 'за работата',
         'techPage.heroTitle3': 'што',
         'techPage.heroTitle4': 'ја испорачуваме.',
-        'techPage.heroDesc': 'Python и прелистувачот за сајтовите што може да се отворат. React кога производот е апликација. Сервери што ги водиме сами, за сајтот да остане онлајн по лансирањето.',
+        'techPage.heroDesc': 'Python и прелистувачот за сајтовите, React за апликациите и сервери што ги водиме сами, за сајтот да остане онлајн.',
         'techPage.stackTitle': 'Технолошки стек',
         'techPage.backend': 'Backend',
         'techPage.backendWhy': 'Python и Flask ги водат сајтовите што ги испорачуваме: менија, форми и продукт-страници. FastAPI е за услуги на кои им треба почисто API.',
@@ -267,11 +253,11 @@ STRINGS = {
         # Page metadata
         'meta.index.title': 'Web Design and Development in Strumica | Estada',
         'meta.index.description': 'Estada designs, builds, and hosts websites and apps in Strumica, North Macedonia, with the domain and hosting included, and films video for social media.',
-        'meta.about.title': 'About Estada — Andrej Trendov, web studio in Strumica',
+        'meta.about.title': 'About Estada: Andrej Trendov, web studio in Strumica',
         'meta.about.description': 'Estada is run by Andrej Trendov in Strumica. Design, build, hosting, and video stay with one person, from the first sketch to the live site.',
-        'meta.technologies.title': 'Technologies — Estada',
+        'meta.technologies.title': 'Technologies | Estada',
         'meta.technologies.description': "The tools behind Estada's sites: Python and Flask, HTML, CSS and JavaScript, React for apps, and servers we run ourselves. Why each one was chosen.",
-        'meta.privacy.title': 'Privacy Policy — Estada',
+        'meta.privacy.title': 'Privacy Policy | Estada',
         'meta.privacy.description': 'What the Estada contact form collects, why, who processes it, and how to ask for it to be deleted.',
         'meta.ogImageAlt': 'Estada: websites and apps from Strumica',
 
@@ -279,7 +265,7 @@ STRINGS = {
         'nav.home': 'Home',
         'nav.technologies': 'Technologies',
         'nav.about': 'About',
-        'nav.letsTalk': "Let's Talk",
+        'cta.contact': 'Start a project',
         'nav.toggle': 'Toggle menu',
         'nav.switchLang': 'English version',
 
@@ -289,7 +275,6 @@ STRINGS = {
         'home.heroTitle2': 'and development',
         'home.heroTitle3': 'in Strumica.',
         'home.heroDesc': 'We design, build, and host websites and apps, then keep them online. The sites below are the proof.',
-        'home.startProject': 'Start a Project',
         'home.exploreServices': 'Explore Services',
 
         # Marquee
@@ -300,10 +285,10 @@ STRINGS = {
         'marquee.clientWork': 'Client Websites',
 
         # Selected work
-        'work.tag': 'Selected Work',
         'work.title': "Sites we've shipped",
         'work.intro': 'Every site below is live. Open it and try it on your phone.',
         'work.alt': '{name} homepage',
+        'work.phoneAlt': 'The {name} site on a phone',
         'work.generacija': 'Built the cafe site: menu, hours, and location.',
         'work.bliss': 'Built the menu and venue site for the lounge.',
         'work.moja': 'Designed and shipped the pre-launch site for the city app.',
@@ -311,7 +296,6 @@ STRINGS = {
         'work.aegis': 'Designed and shipped the product site for the incident workflow.',
 
         # Services
-        'services.tag': 'What We Do',
         'services.title': 'Web design and video in Strumica',
         'services.web.title': 'Websites and apps',
         'services.web.desc': 'Design and build the website or the app. The domain, the hosting, and keeping it online stay with Estada.',
@@ -326,13 +310,11 @@ STRINGS = {
         'serviceTag.social': 'Social',
 
         # Pricing (shown only when business.PACKAGES is filled in)
-        'pricing.tag': 'Pricing',
         'pricing.title': 'Website packages',
         'pricing.hosting': 'Hosting and upkeep',
         'pricing.note': 'The exact price depends on the scope. Write to us for a quote.',
 
         # About section on the home page
-        'about.tag': 'About Estada',
         'about.title1': 'The studio',
         'about.title2': 'behind',
         'about.title3': 'the sites above.',
@@ -343,14 +325,12 @@ STRINGS = {
         'about.card.person': 'One person, start to finish',
 
         # Founder
-        'founder.tag': 'Behind Estada',
         'founder.title1': 'Founded by',
         'founder.name': 'Andrej Trendov',
         'founder.text': 'Andrej is a full-stack developer and designer who started building websites at 10. He works in Python, Flask, FastAPI, and React, and also builds electronics with Arduino and ESP32. He won a national hackathon, holds a full scholarship to FINKI in North Macedonia, and placed first in the national Kengur competition.',
         'founder.link': 'More at trendov.dev',
 
         # Process
-        'process.tag': 'How We Work',
         'process.title': 'How a site gets made',
         'process.talk.title': 'Talk',
         'process.talk.desc': 'You describe the venue or the product. Andrej writes back with what the site needs to show.',
@@ -362,11 +342,9 @@ STRINGS = {
         'process.launch.desc': 'The domain goes live. Later changes, a new menu item or a new clip, come to the same person.',
 
         # Testimonials (shown only when business.TESTIMONIALS is filled in)
-        'testimonials.tag': 'Clients',
         'testimonials.title': 'What the owners say',
 
         # FAQ
-        'faq.tag': 'Questions',
         'faq.title': 'Frequently asked questions',
         'faq.items': [
             ('What does a website from Estada include?',
@@ -386,7 +364,6 @@ STRINGS = {
         ],
 
         # Contact
-        'contact.tag': 'Get in Touch',
         'contact.title1': 'Have a venue or product',
         'contact.title2': 'that needs a',
         'contact.title3': 'site',
@@ -420,7 +397,6 @@ STRINGS = {
         'js.invalidEmail': 'Please enter a valid email address.',
         'js.tokenMissing': 'Security token not loaded. Please refresh the page and try again.',
         'js.network': 'Network error. Please check your connection and try again.',
-        'js.close': 'Close',
         'js.error_generic': 'Failed to send the message. Please try again later or email us directly.',
         'js.error_csrf': 'Security validation failed. Please refresh the page and try again.',
         'js.error_missing_fields': 'Please fill in all required fields.',
@@ -440,13 +416,11 @@ STRINGS = {
         'aboutPage.heroTitle2': 'and host',
         'aboutPage.heroTitle3': 'in',
         'aboutPage.heroTitle4': 'one studio.',
-        'aboutPage.heroDesc': 'Estada is founded by Andrej Trendov, a full-stack developer and designer. The proof is live: sites and products built from concept through hosting.',
-        'aboutPage.story.tag': 'Our Story',
+        'aboutPage.heroDesc': 'Estada was founded by Andrej Trendov, a full-stack developer and designer. Every site is built from concept through hosting.',
         'aboutPage.story.title': 'One person, from the first sketch to the live site.',
         'aboutPage.story.text1': "Estada is Andrej Trendov's studio in Strumica. A project stays with him: the design, the build, the hosting, and the video when the site needs something to post.",
         'aboutPage.story.text2': 'A cafe gets a menu, hours, and a location. A product gets a site that explains it and stays online after launch.',
         'aboutPage.story.text3': 'The five live sites are the proof: Generacija Cafe, Bliss Lounge, Moja Strumica, GrowHub, and AegisSRE.',
-        'aboutPage.values.tag': 'What We Stand For',
         'aboutPage.values.title': 'Our Values',
         'aboutPage.values.security.title': 'Security First',
         'aboutPage.values.security.desc': 'Security is part of the build: careful deployment, access control, and monitoring. We do not promise to cover every breach.',
@@ -456,7 +430,6 @@ STRINGS = {
         'aboutPage.values.partnership.desc': 'A site is not handed over and forgotten. Changes, a new menu item or a new clip, go to the same person who built it.',
         'aboutPage.values.transparency.title': 'Transparency',
         'aboutPage.values.transparency.desc': 'Clear communication, realistic timelines, and a price agreed up front.',
-        'aboutPage.why.tag': 'Why Estada',
         'aboutPage.why.title': 'The work stays in one place.',
         'aboutPage.why.stats.sites': 'Live sites',
         'aboutPage.why.stats.person': 'Person you write to',
@@ -468,7 +441,6 @@ STRINGS = {
         'aboutPage.why.list5': 'One person to talk to, from the first call through launch',
         'aboutPage.cta.title': 'Have a venue or product that needs a site?',
         'aboutPage.cta.desc': 'Write to Andrej. He will reply with what the site needs to show.',
-        'aboutPage.cta.start': 'Start a Project',
         'aboutPage.cta.viewTech': 'View Technologies',
 
         # Technologies page
@@ -477,7 +449,7 @@ STRINGS = {
         'techPage.heroTitle2': 'for the work',
         'techPage.heroTitle3': 'we',
         'techPage.heroTitle4': 'actually ship.',
-        'techPage.heroDesc': 'Python and the browser for the sites you can open. React when the product is an app. Servers we run ourselves, so a site stays online after launch.',
+        'techPage.heroDesc': 'Python and the browser for sites, React for apps, and servers we run ourselves so a site stays online.',
         'techPage.stackTitle': 'Tech Stack',
         'techPage.backend': 'Backend',
         'techPage.backendWhy': 'Python and Flask run the sites we ship: menus, forms, and product pages. FastAPI is for services that need a cleaner API.',

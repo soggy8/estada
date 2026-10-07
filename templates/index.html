@@ -1,35 +1,29 @@
 {% extends 'base.html' %}
+{% from '_icons.html' import icon %}
 
 {% block content %}
         <section class="hero">
             <div class="hero-content">
                 <p class="hero-tag">{{ t('home.heroTag') }}</p>
                 <h1 class="hero-title">
-                    <span class="line">{{ t('home.heroTitle1') }}</span>
-                    <span class="line"><em>{{ t('home.heroTitle2') }}</em></span>
+                    <span class="line">{{ t('home.heroTitle1') }} <em>{{ t('home.heroTitle2') }}</em></span>
                     <span class="line">{{ t('home.heroTitle3') }}</span>
                 </h1>
                 <p class="hero-desc">{{ t('home.heroDesc') }}</p>
                 <div class="hero-actions">
-                    <a href="#contact" class="btn btn-primary">{{ t('home.startProject') }}</a>
+                    <a href="#contact" class="btn btn-primary">{{ t('cta.contact') }}</a>
                     <a href="#services" class="btn btn-ghost">{{ t('home.exploreServices') }}</a>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hex-grid">
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                    <div class="hex"></div>
-                </div>
-                <div class="core-container">
-                    <div class="core"></div>
-                    <div class="core-ring"></div>
-                    <div class="core-ring"></div>
-                </div>
+            <div class="hero-visual hero-phones">
+                {%- for image, name, cls in [('bliss', 'Bliss Lounge', 'phone-back'), ('generacija', 'Generacija Cafe', 'phone-front')] %}
+                <img class="phone {{ cls }}"
+                     src="{{ static_url('img/work/' ~ image ~ '-phone-600.webp') }}"
+                     srcset="{{ static_url('img/work/' ~ image ~ '-phone-300.webp') }} 300w, {{ static_url('img/work/' ~ image ~ '-phone-600.webp') }} 600w"
+                     sizes="(max-width: 768px) 42vw, 270px"
+                     alt="{{ t('work.phoneAlt', name=name) }}" width="600" height="1298"
+                     {%- if cls == 'phone-front' %} fetchpriority="high"{% endif %}>
+                {%- endfor %}
             </div>
         </section>
 
@@ -38,15 +32,15 @@
                 <div class="marquee-track">
                     {%- for _ in range(2) %}
                     <span>{{ t('marquee.websites') }}</span>
-                    <span>•</span>
+                    <span class="marquee-dot">•</span>
                     <span>{{ t('marquee.apps') }}</span>
-                    <span>•</span>
+                    <span class="marquee-dot">•</span>
                     <span>{{ t('marquee.hosting') }}</span>
-                    <span>•</span>
+                    <span class="marquee-dot">•</span>
                     <span>{{ t('marquee.video') }}</span>
-                    <span>•</span>
+                    <span class="marquee-dot">•</span>
                     <span>{{ t('marquee.clientWork') }}</span>
-                    <span>•</span>
+                    <span class="marquee-dot">•</span>
                     {%- endfor %}
                 </div>
             </div>
@@ -54,7 +48,6 @@
 
         <section id="work" class="work">
             <div class="section-header">
-                <p class="section-tag">{{ t('work.tag') }}</p>
                 <h2 class="section-title">{{ t('work.title') }}</h2>
                 <p class="section-intro">{{ t('work.intro') }}</p>
             </div>
@@ -84,17 +77,11 @@
 
         <section id="services" class="services">
             <div class="section-header">
-                <p class="section-tag">{{ t('services.tag') }}</p>
                 <h2 class="section-title">{{ t('services.title') }}</h2>
             </div>
             <div class="services-grid">
                 <article class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="2"/>
-                            <path d="M3 9h18M9 21V9"/>
-                        </svg>
-                    </div>
+                    <div class="service-icon">{{ icon('browser') }}</div>
                     <h3>{{ t('services.web.title') }}</h3>
                     <p>{{ t('services.web.desc') }}</p>
                     <ul class="service-tags">
@@ -106,12 +93,7 @@
                 </article>
                 <article class="service-card service-reel">
                     <div class="service-copy">
-                        <div class="service-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <rect x="2" y="6" width="14" height="12" rx="2"/>
-                                <path d="M16 10l6-3v10l-6-3z"/>
-                            </svg>
-                        </div>
+                        <div class="service-icon">{{ icon('video-camera') }}</div>
                         <h3>{{ t('services.video.title') }}</h3>
                         <p>{{ t('services.video.desc') }}</p>
                         <ul class="service-tags">
@@ -130,7 +112,6 @@
         {%- if business.PACKAGES %}
         <section id="pricing" class="pricing">
             <div class="section-header">
-                <p class="section-tag">{{ t('pricing.tag') }}</p>
                 <h2 class="section-title">{{ t('pricing.title') }}</h2>
             </div>
             <div class="pricing-grid">
@@ -155,32 +136,21 @@
 
         <section id="about" class="about">
             <div class="about-content">
-                <p class="section-tag">{{ t('about.tag') }}</p>
                 <h2 class="about-title">{{ t('about.title1') }} <em>{{ t('about.title2') }}</em> {{ t('about.title3') }}</h2>
                 <p class="about-text">{{ t('about.text1') }}</p>
                 <p class="about-text">{{ t('about.text2') }}</p>
             </div>
-            <div class="about-visual">
-                <div class="float-card card-1">
-                    <span class="card-icon" aria-hidden="true">🌐</span>
-                    <span>{{ t('about.card.hosting') }}</span>
-                </div>
-                <div class="float-card card-2">
-                    <span class="card-icon" aria-hidden="true">🚀</span>
-                    <span>{{ t('about.card.live') }}</span>
-                </div>
-                <div class="float-card card-3">
-                    <span class="card-icon" aria-hidden="true">🤝</span>
-                    <span>{{ t('about.card.person') }}</span>
-                </div>
-            </div>
+            <ul class="about-facts">
+                <li>{{ icon('globe-simple') }}<span>{{ t('about.card.hosting') }}</span></li>
+                <li>{{ icon('browsers') }}<span>{{ t('about.card.live') }}</span></li>
+                <li>{{ icon('user') }}<span>{{ t('about.card.person') }}</span></li>
+            </ul>
         </section>
 
         {% include '_founder.html' %}
 
         <section class="process">
             <div class="section-header">
-                <p class="section-tag">{{ t('process.tag') }}</p>
                 <h2 class="section-title">{{ t('process.title') }}</h2>
             </div>
             <div class="process-steps">
@@ -197,7 +167,6 @@
         {%- if business.TESTIMONIALS %}
         <section class="testimonials">
             <div class="section-header">
-                <p class="section-tag">{{ t('testimonials.tag') }}</p>
                 <h2 class="section-title">{{ t('testimonials.title') }}</h2>
             </div>
             <div class="testimonials-grid">
@@ -213,13 +182,12 @@
 
         <section id="faq" class="faq">
             <div class="section-header">
-                <p class="section-tag">{{ t('faq.tag') }}</p>
                 <h2 class="section-title">{{ t('faq.title') }}</h2>
             </div>
             <div class="faq-list">
                 {%- for question, answer in t('faq.items') + (business.EXTRA_FAQ|map(attribute=lang)|list) %}
                 <details class="faq-item">
-                    <summary>{{ question }}</summary>
+                    <summary>{{ question }}{{ icon('plus', 'icon faq-icon') }}</summary>
                     <p>{{ answer }}</p>
                 </details>
                 {%- endfor %}
@@ -228,8 +196,7 @@
 
         <section id="contact" class="contact">
             <div class="contact-content">
-                <p class="section-tag">{{ t('contact.tag') }}</p>
-                <h2 class="contact-title">{{ t('contact.title1') }}<br>{{ t('contact.title2') }} <em>{{ t('contact.title3') }}</em>{{ t('contact.title4') }}</h2>
+                <h2 class="contact-title">{{ t('contact.title1') }} {{ t('contact.title2') }} <em>{{ t('contact.title3') }}</em>{{ t('contact.title4') }}</h2>
                 <p class="contact-desc">{{ t('contact.desc') }}</p>
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-row">
@@ -258,6 +225,7 @@
                     <!-- Honeypot field - hidden from users but visible to bots -->
                     <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
                     <button type="submit" class="btn btn-primary btn-full">{{ t('contact.send') }}</button>
+                    <p class="form-status" aria-live="polite"></p>
                     <p class="form-privacy">{{ t('contact.privacyNote') }} <a href="{{ page_url('privacy') }}">{{ t('contact.privacyLink') }}</a>.</p>
                 </form>
                 <script type="application/json" id="i18n-messages">{{ js_messages()|tojson }}</script>
@@ -282,28 +250,16 @@
                 <div class="info-block">
                     <h4>{{ t('contact.socialLabel') }}</h4>
                     <div class="social-links">
-                        <a href="{{ business.FACEBOOK }}" target="_blank" rel="noopener" aria-label="Facebook">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
+                        <a href="{{ business.FACEBOOK }}" target="_blank" rel="noopener" aria-label="Facebook">{{ icon('facebook-logo') }}
                         </a>
-                        <a href="{{ business.INSTAGRAM }}" target="_blank" rel="noopener" aria-label="Instagram">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
+                        <a href="{{ business.INSTAGRAM }}" target="_blank" rel="noopener" aria-label="Instagram">{{ icon('instagram-logo') }}
                         </a>
                         {%- if business.LINKEDIN %}
-                        <a href="{{ business.LINKEDIN }}" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-                                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
-                            </svg>
+                        <a href="{{ business.LINKEDIN }}" target="_blank" rel="noopener" aria-label="LinkedIn">{{ icon('linkedin-logo') }}
                         </a>
                         {%- endif %}
                         {%- if business.GITHUB %}
-                        <a href="{{ business.GITHUB }}" target="_blank" rel="noopener" aria-label="GitHub">
-                            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" aria-hidden="true">
-                                <path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.1c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/>
-                            </svg>
+                        <a href="{{ business.GITHUB }}" target="_blank" rel="noopener" aria-label="GitHub">{{ icon('github-logo') }}
                         </a>
                         {%- endif %}
                     </div>
