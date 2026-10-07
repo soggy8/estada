@@ -13,15 +13,15 @@ OG_LOCALES = {'mk': 'mk_MK', 'en': 'en_US'}
 STRINGS = {
     'mk': {
         # Page metadata
-        'meta.index.title': 'Изработка на веб-сајтови и апликации во Струмица | Estada',
-        'meta.index.description': 'Изработка на веб страници и апликации во Струмица: дизајн, домен и хостирање на едно место, плус видео за социјални мрежи. Погледнете ги живите сајтови.',
+        'meta.index.title': 'Изработка на веб-сајтови и апликации во Македонија | Estada',
+        'meta.index.description': 'Изработка на веб страници и апликации низ Македонија, од студио во Струмица: дизајн, домен и хостирање на едно место, плус видео за социјални мрежи.',
         'meta.about.title': 'За Estada: Андреј Трендов, веб студио во Струмица',
         'meta.about.description': 'Estada ја води Андреј Трендов од Струмица. Дизајнот, изработката, хостирањето и видеото остануваат кај еден човек, од првата скица до живиот сајт.',
         'meta.technologies.title': 'Технологии | Estada',
         'meta.technologies.description': 'Алатките зад сајтовите на Estada: Python и Flask, HTML, CSS и JavaScript, React за апликации и сервери што ги водиме сами. Зошто е избран секој од нив.',
         'meta.privacy.title': 'Политика за приватност | Estada',
         'meta.privacy.description': 'Кои податоци ги собира формата за контакт на Estada, зошто, кој ги обработува и како да побарате да се избришат.',
-        'meta.ogImageAlt': 'Estada: веб-сајтови и апликации од Струмица',
+        'meta.ogImageAlt': 'Estada: веб-сајтови и апликации низ Македонија',
 
         # Navigation
         'nav.home': 'Почетна',
@@ -35,7 +35,7 @@ STRINGS = {
         'home.heroTag': 'Веб студио од Струмица',
         'home.heroTitle1': 'Изработка на',
         'home.heroTitle2': 'веб-сајтови',
-        'home.heroTitle3': 'во Струмица.',
+        'home.heroTitle3': 'низ Македонија.',
         'home.heroDesc': 'Дизајнираме, изработуваме и хостираме веб страници и апликации, а потоа ги одржуваме онлајн. Сајтовите подолу се доказот.',
         'home.exploreServices': 'Погледнете ги услугите',
 
@@ -58,7 +58,7 @@ STRINGS = {
         'work.aegis': 'Го дизајниравме и го објавивме продукт-сајтот за текот на инциденти.',
 
         # Services
-        'services.title': 'Изработка на веб страници и видео во Струмица',
+        'services.title': 'Изработка на веб страници и видео низ Македонија',
         'services.web.title': 'Веб-сајтови и апликации',
         'services.web.desc': 'Дизајн и изработка на веб страница или апликација. Доменот, хостирањето и одржувањето онлајн остануваат кај Estada.',
         'services.video.title': 'Видео',
@@ -111,6 +111,8 @@ STRINGS = {
         'faq.items': [
             ('Што е вклучено во изработката на веб-сајт?',
              'Дизајнот, изработката, доменот и хостирањето. По лансирањето, Estada се грижи сајтот да остане онлајн.'),
+            ('Работите ли со клиенти надвор од Струмица?',
+             'Да, со клиенти од цела Македонија. Разговорите, прегледите на сајтот и промените се договараат онлајн, а во Струмица и околината можеме да се сретнеме и во живо.'),
             ('Можам ли да го видам сајтот пред да стане јавен?',
              'Да. Сајтот се изработува на сервер што го води Estada и можете да го отворите пред доменот да оди во живо.'),
             ('Кој ги прави промените по лансирањето, на пример ново јадење во менито?',
@@ -251,15 +253,15 @@ STRINGS = {
 
     'en': {
         # Page metadata
-        'meta.index.title': 'Web Design and Development in Strumica | Estada',
-        'meta.index.description': 'Estada designs, builds, and hosts websites and apps in Strumica, North Macedonia, with the domain and hosting included, and films video for social media.',
+        'meta.index.title': 'Web Design and Development in North Macedonia | Estada',
+        'meta.index.description': 'Estada designs, builds, and hosts websites and apps for clients across North Macedonia, with the domain and hosting included. Based in Strumica.',
         'meta.about.title': 'About Estada: Andrej Trendov, web studio in Strumica',
         'meta.about.description': 'Estada is run by Andrej Trendov in Strumica. Design, build, hosting, and video stay with one person, from the first sketch to the live site.',
         'meta.technologies.title': 'Technologies | Estada',
         'meta.technologies.description': "The tools behind Estada's sites: Python and Flask, HTML, CSS and JavaScript, React for apps, and servers we run ourselves. Why each one was chosen.",
         'meta.privacy.title': 'Privacy Policy | Estada',
         'meta.privacy.description': 'What the Estada contact form collects, why, who processes it, and how to ask for it to be deleted.',
-        'meta.ogImageAlt': 'Estada: websites and apps from Strumica',
+        'meta.ogImageAlt': 'Estada: websites and apps across North Macedonia',
 
         # Navigation
         'nav.home': 'Home',
@@ -273,7 +275,7 @@ STRINGS = {
         'home.heroTag': 'Web studio in Strumica',
         'home.heroTitle1': 'Web design',
         'home.heroTitle2': 'and development',
-        'home.heroTitle3': 'in Strumica.',
+        'home.heroTitle3': 'across North Macedonia.',
         'home.heroDesc': 'We design, build, and host websites and apps, then keep them online. The sites below are the proof.',
         'home.exploreServices': 'Explore Services',
 
@@ -296,7 +298,7 @@ STRINGS = {
         'work.aegis': 'Designed and shipped the product site for the incident workflow.',
 
         # Services
-        'services.title': 'Web design and video in Strumica',
+        'services.title': 'Web design and video across North Macedonia',
         'services.web.title': 'Websites and apps',
         'services.web.desc': 'Design and build the website or the app. The domain, the hosting, and keeping it online stay with Estada.',
         'services.video.title': 'Video',
@@ -349,6 +351,8 @@ STRINGS = {
         'faq.items': [
             ('What does a website from Estada include?',
              'The design, the build, the domain, and the hosting. After launch, Estada keeps the site online.'),
+            ('Do you work with clients outside Strumica?',
+             'Yes, anywhere in North Macedonia. Calls, site previews, and changes all happen online, and clients in and around Strumica can also meet in person.'),
             ('Can I see the site before it goes public?',
              'Yes. The site is built on a server Estada runs, and you can open it before the domain goes live.'),
             ('Who makes changes after launch, like a new menu item?',

@@ -236,8 +236,8 @@ def hreflang_alternates(endpoint):
     return links
 
 BUSINESS_DESCRIPTION = {
-    'mk': 'Веб студио во Струмица што дизајнира, изработува и хостира веб-сајтови и апликации, и снима и монтира видео за социјални мрежи.',
-    'en': 'Web studio in Strumica that designs, builds, and hosts websites and apps, and films and edits video for social media.',
+    'mk': 'Веб студио од Струмица што дизајнира, изработува и хостира веб-сајтови и апликации за клиенти низ Македонија, и снима и монтира видео за социјални мрежи.',
+    'en': 'Web studio in Strumica that designs, builds, and hosts websites and apps for clients across North Macedonia, and films and edits video for social media.',
 }
 
 def build_schema(page):

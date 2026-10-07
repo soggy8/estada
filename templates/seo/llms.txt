@@ -2,7 +2,7 @@
 
 > Estada is a web studio in Strumica, North Macedonia, run by Andrej Trendov (Андреј Трендов). It designs and builds websites and apps, registers the domain, hosts the site on servers it runs itself, and keeps it online after launch. It also films and edits short video for social media. The site is in Macedonian at the root, with an English version under /en/.
 
-Estada works with local venues (cafes, bars, lounges) and with product teams that need a site that explains what they make. One person handles the project from the first conversation through launch and later changes.
+Estada works with clients anywhere in North Macedonia, remotely, and meets in person around Strumica. It works with venues (cafes, bars, lounges) and with product teams that need a site that explains what they make. One person handles the project from the first conversation through launch and later changes.
 
 ## Pages
 
