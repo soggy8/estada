@@ -1,14 +1,16 @@
 # Estada
 
-> Estada is a web studio in Strumica, North Macedonia, run by Andrej Trendov. It designs and builds websites and apps, registers the domain, hosts the site on servers it runs itself, and keeps it online after launch. It also films and edits short video for social media. The site is in Macedonian by default, with an English version.
+> Estada is a web studio in Strumica, North Macedonia, run by Andrej Trendov (Андреј Трендов). It designs and builds websites and apps, registers the domain, hosts the site on servers it runs itself, and keeps it online after launch. It also films and edits short video for social media. The site is in Macedonian at the root, with an English version under /en/.
 
 Estada works with local venues (cafes, bars, lounges) and with product teams that need a site that explains what they make. One person handles the project from the first conversation through launch and later changes.
 
 ## Pages
 
-- [Home]({{ site_url }}/): Live work, the two services, how a site gets made, and the contact form
-- [About]({{ site_url }}/about): Who runs Estada, what it values, and why the work stays with one person
-- [Technologies]({{ site_url }}/technologies): The tools used for the shipped sites and why each one was chosen
+- [Home, Macedonian]({{ site_url }}/): Live work, the two services, how a site gets made, FAQ, and the contact form
+- [Home, English]({{ site_url }}/en/): The same page in English
+- [About]({{ site_url }}/en/about): Who runs Estada, what it values, and why the work stays with one person ([Macedonian]({{ site_url }}/about))
+- [Technologies]({{ site_url }}/en/technologies): The tools used for the shipped sites and why each one was chosen ([Macedonian]({{ site_url }}/technologies))
+- [Privacy policy]({{ site_url }}/en/privacy): What the contact form collects and who processes it ([Macedonian]({{ site_url }}/privacy))
 
 ## Services
 
@@ -29,7 +31,11 @@ Estada works with local venues (cafes, bars, lounges) and with product teams tha
 
 ## Contact
 
-- Email: atrendov1@gmail.com
+- Email: {{ business.EMAIL }}
+{%- if business.PHONE %}
+- Phone and Viber: {{ business.PHONE }}
+{%- endif %}
 - Location: Strumica, North Macedonia
 - [Contact form]({{ site_url }}/#contact)
-- [Instagram](https://www.instagram.com/estada.dev/)
+- [Instagram]({{ business.INSTAGRAM }})
+- [Facebook]({{ business.FACEBOOK }})

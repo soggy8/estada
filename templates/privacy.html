@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <article class="legal">
+            <h1 class="legal-title">{{ t('privacy.title') }}</h1>
+            <p class="legal-updated">{{ t('privacy.updated') }}</p>
+            {%- for heading, paragraphs in t('privacy.sections') %}
+            <h2>{{ heading }}</h2>
+            {%- for paragraph in paragraphs %}
+            {%- set parts = paragraph.split('{email}') %}
+            <p>{{ parts[0] }}{% if parts|length > 1 %}<a href="mailto:{{ business.EMAIL }}">{{ business.EMAIL }}</a>{{ parts[1] }}{% endif %}</p>
+            {%- endfor %}
+            {%- endfor %}
+        </article>
+{% endblock %}

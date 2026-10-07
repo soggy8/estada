@@ -22,19 +22,25 @@ IMPORTANT:
 Emails include user's email in reply_to for direct replies.
 """
 
-from flask import Flask, request, jsonify, render_template, make_response
+from flask import Flask, request, jsonify, render_template, make_response, g, url_for
 from flask_wtf.csrf import CSRFProtect, generate_csrf, validate_csrf
 from functools import wraps
 from datetime import datetime, timedelta
+import hashlib
 import os
 import requests
 import logging
 import re
 from dotenv import load_dotenv
 
+import business
+from i18n import LANGS, DEFAULT_LANG, OG_LOCALES, STRINGS
+
 load_dotenv()
 
 app = Flask(__name__, template_folder='templates', static_folder='static')
+# Keep Cyrillic readable in JSON-LD and API responses instead of \u escapes
+app.json.ensure_ascii = False
 
 # Configure logging to show all levels
 logging.basicConfig(
@@ -123,6 +129,7 @@ def rate_limit(f):
         if len(rate_limit_storage[client_ip]) >= RATE_LIMIT_REQUESTS:
             return jsonify({
                 'success': False,
+                'code': 'rate_limited',
                 'message': 'Too many requests. Please try again later.'
             }), 429
         
@@ -135,7 +142,24 @@ def rate_limit(f):
 @app.errorhandler(413)
 def request_entity_too_large(error):
     """Handle request size limit exceeded"""
-    return jsonify({'success': False, 'message': 'Request too large. Please reduce the size of your message.'}), 413
+    return jsonify({'success': False, 'code': 'too_large', 'message': 'Request too large. Please reduce the size of your message.'}), 413
+
+# Everything is served from this origin: fonts, scripts, styles, images, video.
+# 'unsafe-inline' for styles covers the @font-face block in the page head and
+# the style attributes script.js sets. JSON-LD blocks are data, not scripts.
+CONTENT_SECURITY_POLICY = '; '.join([
+    "default-src 'self'",
+    "script-src 'self'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data:",
+    "font-src 'self'",
+    "media-src 'self'",
+    "connect-src 'self'",
+    "object-src 'none'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+])
 
 @app.after_request
 def set_security_headers(response):
@@ -143,31 +167,189 @@ def set_security_headers(response):
     response.headers['X-Content-Type-Options'] = 'nosniff'
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-XSS-Protection'] = '1; mode=block'
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Content-Security-Policy'] = CONTENT_SECURITY_POLICY
     if not app.config['DEBUG']:
         response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    # static_url() adds a content hash as ?v=, so a versioned file never changes
+    if request.path.startswith('/static/') and request.args.get('v') and response.status_code in (200, 206, 304):
+        response.headers['Cache-Control'] = 'public, max-age=31536000, immutable'
     return response
 
-@app.route('/')
-def index():
-    """Serve the main index.html page"""
-    return render_template('index.html')
+# ----------------------------------------
+# Pages: Macedonian at the root, English under /en/
+# ----------------------------------------
 
-@app.route('/about')
-def about():
-    """Serve the about.html page"""
-    return render_template('about.html')
+# lastmod goes into the sitemap. Update it when a page's content changes.
+PAGES = {
+    'index': {'template': 'index.html', 'paths': {'mk': '/', 'en': '/en/'}, 'lastmod': '2026-10-07'},
+    'about': {'template': 'about.html', 'paths': {'mk': '/about', 'en': '/en/about'}, 'lastmod': '2026-10-07'},
+    'technologies': {'template': 'technologies.html', 'paths': {'mk': '/technologies', 'en': '/en/technologies'}, 'lastmod': '2026-10-07'},
+    'privacy': {'template': 'privacy.html', 'paths': {'mk': '/privacy', 'en': '/en/privacy'}, 'lastmod': '2026-10-07'},
+}
 
-@app.route('/technologies')
-def technologies():
-    """Serve the technologies.html page"""
-    return render_template('technologies.html')
+def make_page_view(endpoint, template):
+    def view(lang):
+        g.lang = lang
+        return render_template(template, page=endpoint)
+    view.__name__ = endpoint
+    return view
+
+for _endpoint, _page in PAGES.items():
+    _view = make_page_view(_endpoint, _page['template'])
+    for _lang, _path in _page['paths'].items():
+        app.add_url_rule(_path, _endpoint, _view, defaults={'lang': _lang})
+
+def current_lang():
+    return g.get('lang', DEFAULT_LANG)
+
+def translate(key, **kwargs):
+    value = STRINGS[current_lang()][key]
+    return value.format(**kwargs) if kwargs else value
+
+def pick(value):
+    """Return the current language's entry from a {'mk': ..., 'en': ...} dict."""
+    return value[current_lang()] if isinstance(value, dict) else value
+
+def page_url(endpoint, lang=None):
+    return url_for(endpoint, lang=lang or current_lang())
+
+def absolute_url(endpoint, lang=None):
+    return SITE_URL + page_url(endpoint, lang)
+
+_static_hashes = {}
+
+def static_url(filename):
+    """URL for a static file with a content hash, so it can be cached for a year."""
+    path = os.path.join(app.static_folder, filename)
+    mtime = os.path.getmtime(path)
+    cached = _static_hashes.get(filename)
+    if cached is None or cached[0] != mtime:
+        with open(path, 'rb') as f:
+            cached = (mtime, hashlib.sha256(f.read()).hexdigest()[:10])
+        _static_hashes[filename] = cached
+    return url_for('static', filename=filename, v=cached[1])
+
+def hreflang_alternates(endpoint):
+    links = [{'hreflang': lang, 'href': absolute_url(endpoint, lang)} for lang in LANGS]
+    links.append({'hreflang': 'x-default', 'href': absolute_url(endpoint, DEFAULT_LANG)})
+    return links
+
+BUSINESS_DESCRIPTION = {
+    'mk': 'Веб студио во Струмица што дизајнира, изработува и хостира веб-сајтови и апликации, и снима и монтира видео за социјални мрежи.',
+    'en': 'Web studio in Strumica that designs, builds, and hosts websites and apps, and films and edits video for social media.',
+}
+
+def build_schema(page):
+    """JSON-LD graph for a page. Every page carries the full entity set, so no @id points at another URL."""
+    lang = current_lang()
+    website_id = f'{SITE_URL}/#website'
+    business_id = f'{SITE_URL}/#business'
+    founder_id = f'{SITE_URL}/#founder'
+    url = absolute_url(page)
+
+    organization = {
+        '@type': 'ProfessionalService',
+        '@id': business_id,
+        'name': business.NAME,
+        'url': f'{SITE_URL}/',
+        'description': BUSINESS_DESCRIPTION[lang],
+        'logo': SITE_URL + url_for('static', filename='img/apple-touch-icon.png'),
+        'image': SITE_URL + url_for('static', filename='img/og.png'),
+        'email': business.EMAIL,
+        'address': {
+            '@type': 'PostalAddress',
+            'addressLocality': business.CITY['en'],
+            'postalCode': business.POSTAL_CODE,
+            'addressCountry': business.COUNTRY_CODE,
+        },
+        'areaServed': [
+            {'@type': 'City', 'name': business.CITY['en']},
+            {'@type': 'Country', 'name': 'North Macedonia'},
+        ],
+        'knowsLanguage': list(LANGS),
+        'founder': {'@id': founder_id},
+        'sameAs': [u for u in (business.INSTAGRAM, business.FACEBOOK, business.LINKEDIN, business.GITHUB) if u],
+        'hasOfferCatalog': {
+            '@type': 'OfferCatalog',
+            'name': STRINGS[lang]['services.title'],
+            'itemListElement': [
+                {'@type': 'Offer', 'itemOffered': {
+                    '@type': 'Service',
+                    'name': STRINGS[lang]['services.web.title'],
+                    'description': STRINGS[lang]['services.web.desc'],
+                }},
+                {'@type': 'Offer', 'itemOffered': {
+                    '@type': 'Service',
+                    'name': STRINGS[lang]['services.video.title'],
+                    'description': STRINGS[lang]['services.video.desc'],
+                }},
+            ],
+        },
+    }
+    if business.PHONE:
+        organization['telephone'] = business.PHONE
+
+    founder = {
+        '@type': 'Person',
+        '@id': founder_id,
+        'name': business.FOUNDER['en'],
+        'alternateName': business.FOUNDER['mk'],
+        'url': business.FOUNDER_URL,
+        'jobTitle': 'Founder',
+        'worksFor': {'@id': business_id},
+        'image': SITE_URL + url_for('static', filename='img/andrej.webp'),
+        'knowsAbout': ['Web development', 'Web design', 'Python', 'Flask', 'FastAPI', 'React', 'Video editing'],
+    }
+
+    website = {
+        '@type': 'WebSite',
+        '@id': website_id,
+        'url': f'{SITE_URL}/',
+        'name': business.NAME,
+        'inLanguage': list(LANGS),
+        'publisher': {'@id': business_id},
+    }
+
+    webpage = {
+        '@type': 'AboutPage' if page == 'about' else 'WebPage',
+        '@id': f'{url}#webpage',
+        'url': url,
+        'name': STRINGS[lang][f'meta.{page}.title'],
+        'description': STRINGS[lang][f'meta.{page}.description'],
+        'inLanguage': lang,
+        'isPartOf': {'@id': website_id},
+        'about': {'@id': business_id},
+    }
+    if page == 'about':
+        webpage['mainEntity'] = {'@id': founder_id}
+
+    return {'@context': 'https://schema.org', '@graph': [website, organization, founder, webpage]}
 
 @app.context_processor
-def inject_site_url():
-    return {'site_url': SITE_URL}
+def inject_template_helpers():
+    lang = current_lang()
+    return {
+        'site_url': SITE_URL,
+        'lang': lang,
+        'other_lang': next(l for l in LANGS if l != lang),
+        'og_locale': OG_LOCALES[lang],
+        'og_locale_alternate': [OG_LOCALES[l] for l in LANGS if l != lang],
+        't': translate,
+        'pick': pick,
+        'page_url': page_url,
+        'absolute_url': absolute_url,
+        'static_url': static_url,
+        'hreflang_alternates': hreflang_alternates,
+        'build_schema': build_schema,
+        'js_messages': lambda: {k[len('js.'):]: v for k, v in STRINGS[lang].items() if k.startswith('js.')},
+        'strings': STRINGS,
+        'business': business,
+        'year': datetime.now().year,
+    }
 
-def text_response(template, mimetype):
-    response = make_response(render_template(template))
+def text_response(template, mimetype, **context):
+    response = make_response(render_template(template, **context))
     response.mimetype = mimetype
     return response
 
@@ -177,7 +359,16 @@ def robots_txt():
 
 @app.route('/sitemap.xml')
 def sitemap_xml():
-    return text_response('seo/sitemap.xml', 'application/xml')
+    entries = [
+        {
+            'loc': absolute_url(endpoint, lang),
+            'lastmod': page['lastmod'],
+            'alternates': hreflang_alternates(endpoint),
+        }
+        for endpoint, page in PAGES.items()
+        for lang in LANGS
+    ]
+    return text_response('seo/sitemap.xml', 'application/xml', entries=entries)
 
 @app.route('/llms.txt')
 def llms_txt():
@@ -213,7 +404,7 @@ def contact():
     try:
         # Check request size
         if request.content_length and request.content_length > app.config['MAX_CONTENT_LENGTH']:
-            return jsonify({'success': False, 'message': 'Request too large.'}), 413
+            return jsonify({'success': False, 'code': 'too_large', 'message': 'Request too large.'}), 413
         
         data = request.get_json()
         
@@ -221,14 +412,14 @@ def contact():
         csrf_token = data.get('csrf_token')
         if not csrf_token:
             app.logger.warning('Contact form submission missing CSRF token')
-            return jsonify({'success': False, 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
+            return jsonify({'success': False, 'code': 'csrf', 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
         
         try:
             # Validate CSRF token (this will raise an exception if invalid)
             validate_csrf(csrf_token)
         except Exception as e:
             app.logger.warning(f'Invalid CSRF token: {str(e)}')
-            return jsonify({'success': False, 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
+            return jsonify({'success': False, 'code': 'csrf', 'message': 'Security validation failed. Please refresh the page and try again.'}), 403
         
         # Honeypot field check (bots often fill hidden fields)
         honeypot = data.get('website', '').strip()  # Hidden field that should be empty
@@ -239,7 +430,7 @@ def contact():
         
         # Validate required fields
         if not data.get('name') or not data.get('email'):
-            return jsonify({'success': False, 'message': 'Name and email are required'}), 400
+            return jsonify({'success': False, 'code': 'missing_fields', 'message': 'Name and email are required'}), 400
         
         # Sanitize and validate input
         name = str(data.get('name', '')).strip()[:100]  # Limit length
@@ -249,18 +440,18 @@ def contact():
         
         # Enhanced email validation using regex
         if not EMAIL_REGEX.match(email):
-            return jsonify({'success': False, 'message': 'Invalid email address format.'}), 400
+            return jsonify({'success': False, 'code': 'invalid_email', 'message': 'Invalid email address format.'}), 400
         
         # Additional email validation: check for suspicious patterns
         if email.count('@') != 1:
-            return jsonify({'success': False, 'message': 'Invalid email address format.'}), 400
+            return jsonify({'success': False, 'code': 'invalid_email', 'message': 'Invalid email address format.'}), 400
         
         # Block common disposable email domains (optional - can be expanded)
         disposable_domains = ['tempmail.com', 'guerrillamail.com', '10minutemail.com']
         email_domain = email.split('@')[1].lower()
         if email_domain in disposable_domains:
             app.logger.warning(f'Blocked disposable email domain: {email_domain}')
-            return jsonify({'success': False, 'message': 'Please use a valid business email address.'}), 400
+            return jsonify({'success': False, 'code': 'disposable_email', 'message': 'Please use a valid business email address.'}), 400
         
         # Basic spam protection - check for common spam patterns
         spam_keywords = ['http://', 'https://', 'www.']
@@ -426,7 +617,7 @@ To reply directly to the sender, use the Reply button.
                 else:
                     error_msg = 'Failed to send email. Please try again later or contact us directly.'
                 
-                return jsonify({'success': False, 'message': error_msg}), 500
+                return jsonify({'success': False, 'code': 'send_failed', 'message': error_msg}), 500
                 
         except requests.exceptions.Timeout:
             app.logger.error('Resend API request timed out')

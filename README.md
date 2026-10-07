@@ -1,6 +1,14 @@
-# Estada - Tech Logistics & Digital Solutions
+# Estada
 
-A modern, responsive static website for Estada, a tech logistics firm offering design, fullstack development, marketing, hosting, and digital solutions.
+Website for Estada, a web studio in Strumica, North Macedonia, that designs, builds, and hosts websites and apps and films video for social media.
+
+## Languages and content
+
+- Macedonian is served at `/`, `/about`, `/technologies`, `/privacy`; English at the same paths under `/en/`.
+- All page copy lives in `i18n.py`. Business facts (email, phone, social links, prices, testimonials, extra FAQ) live in `business.py`; empty values are not rendered.
+- When a page's content changes, update its `lastmod` in `PAGES` in `app.py` (it goes into the sitemap).
+- Static files are referenced through `static_url()`, which adds a content hash so they can be cached for a year.
+- `deploy/Caddyfile.example` has the compression and header settings for the reverse proxy.
 
 ## Features
 

@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Add fade-in class to elements we want to animate
     const animateElements = document.querySelectorAll(
-        '.service-card, .process-step, .stat, .float-card'
+        '.service-card, .process-step, .stat, .float-card, .value-card, .stat-item'
     );
     
     animateElements.forEach((el, index) => {
@@ -106,6 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Form submission handler
     const contactForm = document.querySelector('.contact-form');
+    // Localized messages, rendered by the server next to the form
+    const messagesElement = document.getElementById('i18n-messages');
+    const messages = messagesElement ? JSON.parse(messagesElement.textContent) : {};
     if (contactForm) {
         // Fetch CSRF token on page load
         let csrfToken = null;
@@ -124,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Check if CSRF token is available
             if (!csrfToken) {
-                showNotification('Security token not loaded. Please refresh the page and try again.', 'error');
+                showNotification(messages.tokenMissing, 'error');
                 return;
             }
             
@@ -141,21 +144,21 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Simple validation
             if (!data.name || !data.email) {
-                showNotification('Please fill in all required fields.', 'error');
+                showNotification(messages.required, 'error');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?@[a-zA-Z0-9](?:[a-zA-Z0-9.-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,}$/;
             if (!emailRegex.test(data.email)) {
-                showNotification('Please enter a valid email address.', 'error');
+                showNotification(messages.invalidEmail, 'error');
                 return;
             }
             
             // Submit form
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
+            submitBtn.textContent = messages.sending;
             submitBtn.disabled = true;
             
             try {
@@ -170,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const result = await response.json();
                 
                 if (result.success) {
-                    showNotification('Message sent! We\'ll be in touch soon.', 'success');
+                    showNotification(messages.success, 'success');
                     contactForm.reset();
                     // Refresh CSRF token after successful submission
                     try {
@@ -181,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.error('Failed to refresh CSRF token:', error);
                     }
                 } else {
-                    showNotification(result.message || 'Failed to send message. Please try again.', 'error');
+                    showNotification(messages['error_' + result.code] || messages.error_generic, 'error');
                     // Refresh CSRF token on error (token might be expired)
                     if (response.status === 403) {
                         try {
@@ -195,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             } catch (error) {
                 console.error('Error:', error);
-                showNotification('Network error. Please check your connection and try again.', 'error');
+                showNotification(messages.network, 'error');
             } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
@@ -211,10 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const notification = document.createElement('div');
         notification.className = `notification notification-${type}`;
-        notification.innerHTML = `
-            <span>${message}</span>
-            <button onclick="this.parentElement.remove()" aria-label="Close">&times;</button>
-        `;
+        notification.setAttribute('role', type === 'error' ? 'alert' : 'status');
+        const text = document.createElement('span');
+        text.textContent = message;
+        const closeButton = document.createElement('button');
+        closeButton.type = 'button';
+        closeButton.setAttribute('aria-label', messages.close || 'Close');
+        closeButton.textContent = '\u00d7';
+        closeButton.addEventListener('click', () => notification.remove());
+        notification.append(text, closeButton);
         
         // Add styles dynamically
         notification.style.cssText = `

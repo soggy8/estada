@@ -50,8 +50,8 @@
 }
 
 /* Make only Flask and Three.js logos white */
-.tech-slider img[src$="flask.svg"],
-.tech-slider img[src$="threejs.svg"] {
+.tech-slider img[src*="/flask.svg"],
+.tech-slider img[src*="/threejs.svg"] {
     filter: brightness(0) invert(1);
 }
 

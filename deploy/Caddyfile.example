@@ -1,0 +1,15 @@
+# Merge into the server's Caddyfile, then: caddy validate --config /etc/caddy/Caddyfile && systemctl reload caddy
+# Assumes gunicorn listens on localhost:8082 (the app's default PORT).
+estada.dev {
+	# Compress HTML, CSS, JS, SVG, XML, and text. WOFF2, WebP, and MP4 are already compressed.
+	encode zstd gzip
+
+	header {
+		# Removes both Caddy's and gunicorn's Server header
+		-Server
+	}
+
+	# Flask sets Cache-Control, CSP, and Referrer-Policy; static files
+	# requested with ?v=<hash> are cached for a year as immutable.
+	reverse_proxy localhost:8082
+}

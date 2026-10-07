@@ -1,20 +1,28 @@
-    <title data-translate="{{ title_key }}">{{ page_title }}</title>
+{%- set page_title = t('meta.' ~ page ~ '.title') %}
+{%- set page_description = t('meta.' ~ page ~ '.description') %}
+{%- set canonical = absolute_url(page) %}
+    <title>{{ page_title }}</title>
     <meta name="description" content="{{ page_description }}">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="theme-color" content="#040812">
-    <link rel="canonical" href="{{ site_url }}{{ page_path }}">
+    <link rel="canonical" href="{{ canonical }}">
+    {%- for alt in hreflang_alternates(page) %}
+    <link rel="alternate" hreflang="{{ alt.hreflang }}" href="{{ alt.href }}">
+    {%- endfor %}
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Estada">
     <meta property="og:title" content="{{ page_title }}">
     <meta property="og:description" content="{{ page_description }}">
-    <meta property="og:url" content="{{ site_url }}{{ page_path }}">
+    <meta property="og:url" content="{{ canonical }}">
     <meta property="og:image" content="{{ site_url }}{{ url_for('static', filename='img/og.png') }}">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Estada: веб-сајтови и апликации од Струмица">
-    <meta property="og:locale" content="mk_MK">
-    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:image:alt" content="{{ t('meta.ogImageAlt') }}">
+    <meta property="og:locale" content="{{ og_locale }}">
+    {%- for alt_locale in og_locale_alternate %}
+    <meta property="og:locale:alternate" content="{{ alt_locale }}">
+    {%- endfor %}
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ page_title }}">
@@ -24,3 +32,4 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='logo/ESTADA_Only_Icon.svg') }}">
     <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
     <link rel="alternate" type="text/plain" title="llms.txt" href="{{ site_url }}/llms.txt">
+    <script type="application/ld+json">{{ build_schema(page)|tojson }}</script>
