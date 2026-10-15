@@ -51,6 +51,7 @@ STRINGS = {
         'work.intro': 'Секоја веб страна подолу е жива. Отворете ја и пробајте ја на телефон.',
         'work.alt': 'Почетна страница на {name}',
         'work.phoneAlt': 'Сајтот на {name} на мобилен телефон',
+        'work.nkarev': 'Го изработивме и го одржуваме официјалниот веб-сајт на средното училиште: новости, настани и информации за наставата.',
         'work.generacija': 'Го изработивме сајтот на кафе барот: мени, работно време и локација.',
         'work.bliss': 'Го изработивме менито и сајтот на лаунџ барот.',
         'work.moja': 'Го дизајниравме и го објавивме сајтот пред лансирањето на градската апликација.',
@@ -83,7 +84,7 @@ STRINGS = {
         'about.text1': 'Estada е студиото на Андреј Трендов за веб-сајтови и производи. Дизајнот, развојот и хостирањето остануваат кај човекот што ја гради работата.',
         'about.text2': 'Мрежата погоре е доказот: сајтови изработени и одржани онлајн од човекот што ги изгради.',
         'about.card.hosting': 'Домен и хостирање вклучени',
-        'about.card.live': '5 живи сајтови',
+        'about.card.live': '6 живи сајтови',
         'about.card.person': 'Еден човек од почеток до крај',
 
         # Founder
@@ -184,7 +185,7 @@ STRINGS = {
         'aboutPage.story.title': 'Еден човек, од првата скица до живиот сајт.',
         'aboutPage.story.text1': 'Estada е студиото на Андреј Трендов во Струмица. Проектот останува кај него: дизајнот, изработката, хостирањето и видеото кога на сајтот му треба нешто за објава.',
         'aboutPage.story.text2': 'Кафе бар добива мени, работно време и локација. Производ добива сајт што го објаснува и останува онлајн по лансирањето.',
-        'aboutPage.story.text3': 'Петте живи сајтови се доказот: Generacija Cafe, Bliss Lounge, Моја Струмица, GrowHub и AegisSRE.',
+        'aboutPage.story.text3': 'Шестте живи сајтови се доказот: ДСУ-РЦСОО „Никола Карев“, Generacija Cafe, Bliss Lounge, Моја Струмица, GrowHub и AegisSRE.',
         'aboutPage.values.title': 'Нашите вредности',
         'aboutPage.values.security.title': 'Безбедност на прво место',
         'aboutPage.values.security.desc': 'Безбедноста е дел од изработката: внимателна имплементација, контрола на пристап и надзор. Не ветуваме покривање на секој пробив.',
@@ -291,6 +292,7 @@ STRINGS = {
         'work.intro': 'Every site below is live. Open it and try it on your phone.',
         'work.alt': '{name} homepage',
         'work.phoneAlt': 'The {name} site on a phone',
+        'work.nkarev': 'Built and maintain the official website for the secondary school: news, events, and program information.',
         'work.generacija': 'Built the cafe site: menu, hours, and location.',
         'work.bliss': 'Built the menu and venue site for the lounge.',
         'work.moja': 'Designed and shipped the pre-launch site for the city app.',
@@ -323,7 +325,7 @@ STRINGS = {
         'about.text1': "Estada is Andrej Trendov's studio for websites and products. Design, development, and hosting stay with the person who builds them.",
         'about.text2': 'The grid above is the proof: sites shipped and kept online by the person who built them.',
         'about.card.hosting': 'Domain and hosting included',
-        'about.card.live': '5 live sites',
+        'about.card.live': '6 live sites',
         'about.card.person': 'One person, start to finish',
 
         # Founder
@@ -424,7 +426,7 @@ STRINGS = {
         'aboutPage.story.title': 'One person, from the first sketch to the live site.',
         'aboutPage.story.text1': "Estada is Andrej Trendov's studio in Strumica. A project stays with him: the design, the build, the hosting, and the video when the site needs something to post.",
         'aboutPage.story.text2': 'A cafe gets a menu, hours, and a location. A product gets a site that explains it and stays online after launch.',
-        'aboutPage.story.text3': 'The five live sites are the proof: Generacija Cafe, Bliss Lounge, Moja Strumica, GrowHub, and AegisSRE.',
+        'aboutPage.story.text3': 'The six live sites are the proof: DSU RCSOO "Nikola Karev", Generacija Cafe, Bliss Lounge, Moja Strumica, GrowHub, and AegisSRE.',
         'aboutPage.values.title': 'Our Values',
         'aboutPage.values.security.title': 'Security First',
         'aboutPage.values.security.desc': 'Security is part of the build: careful deployment, access control, and monitoring. We do not promise to cover every breach.',
