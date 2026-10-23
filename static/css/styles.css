@@ -562,6 +562,11 @@ img {
     grid-column: 4 / span 2;
 }
 
+/* Center the lone last card when there are seven (3 + 3 + 1). */
+.work-card:nth-child(7):nth-last-child(1) {
+    grid-column: 3 / span 2;
+}
+
 .work-card:hover {
     border-color: var(--border-blue);
     transform: translateY(-4px);
@@ -1154,7 +1159,8 @@ img {
 
     .work-card,
     .work-card:nth-child(4):nth-last-child(2),
-    .work-card:nth-child(5):nth-last-child(1) {
+    .work-card:nth-child(5):nth-last-child(1),
+    .work-card:nth-child(7):nth-last-child(1) {
         grid-column: auto;
     }
     

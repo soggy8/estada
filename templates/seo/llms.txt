@@ -20,6 +20,7 @@ Estada works with clients anywhere in North Macedonia, remotely, and meets in pe
 ## Live work
 
 - [DSU RCSOO "Nikola Karev"](https://nkarev-strumica.edu.mk): Official website for a secondary school in Strumica: news, events, and program information
+- [Bla Bla Cafe](https://blablacafe.mk): Cafe site in Strumica with the menu, opening hours, and location
 - [Generacija Cafe](https://generacijacafe.mk): Cafe site in Strumica with the menu, hours, and location
 - [Bliss Lounge](https://blisslounge.bar): Menu and venue site for a lounge bar in Strumica
 - [Moja Strumica](https://mojastrumica.app): Pre-launch site for a city app for Strumica
